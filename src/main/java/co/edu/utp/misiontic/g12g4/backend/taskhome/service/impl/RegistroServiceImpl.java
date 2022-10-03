@@ -1,16 +1,8 @@
 package co.edu.utp.misiontic.g12g4.backend.taskhome.service.impl;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailRequest;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailResponse;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.User;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.model.repository.EmailRepository;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.service.RegistroService;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.service.SecurityService;
 import lombok.AllArgsConstructor;
 
 @Service
