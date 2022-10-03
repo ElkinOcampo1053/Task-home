@@ -11,6 +11,7 @@ import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.User;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.model.repository.EmailRepository;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.service.SecurityService;
 import lombok.AllArgsConstructor;
+import lombok.var;
 
 @Service
 @AllArgsConstructor

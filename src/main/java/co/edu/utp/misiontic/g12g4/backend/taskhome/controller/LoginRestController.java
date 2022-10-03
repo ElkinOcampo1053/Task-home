@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.LoginRequest;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.service.SecurityService;
 import lombok.AllArgsConstructor;
+import lombok.var;
 
 @AllArgsConstructor
 @RestController
