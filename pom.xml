@@ -13,7 +13,7 @@
 	<name>Task Home</name>
 	<description>Pagina Web para programar y administrar las tareas del hogar</description>
 	<properties>
-		<java.version>8</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 
