@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/registro.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <link rel="shortcut icon" href="../images/TaskHome.ico" />
+</head>
+
+<body style="background-color:#b5ebf7;">
+<div class="container" id="container">
+  
+  <div class="form-container sign-up-container">
+    
+    <form action="#">
+      <h1 class="Logo">TASKHOME</h1>
+      <h1>Crear Cuenta</h1>
+      <!-- Enlaces de redes para registrarse -->
+      <!-- <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div> -->
+      <!-- <span>or use your email for registration</span> -->
+      <!-- Comentado Elkin
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">-->
+
+    </form>
+  </div>
+  <div class="form-container sign-in-container">
+    <form action="#">
+      <h1>Crear cuenta<h1>
+        <br>
+      <h5>Favor a continuacion digite la siguiente informacion para crear su cuenta</h5>
+      <!-- Enlaces de redes para ingresar -->
+      <!-- <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div> -->
+      <!-- <span>or use your account</span> -->
+      <!-- Comentao Elkin
+      <input type="nombre" placeholder="Nombre Usuario">Nombre Usuario</input>
+      <input type="email" placeholder="Correo Electronico">Correo Electronico</input>
+      <input type="password" placeholder="contraseña">Contraseña</input>
+      <input type="confirmar-password" placeholder="Confirmar Password">Confirmar Contraseña</input>
+      -->
+      <div class="form-floating text-dark">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Nombre Usuario">
+          <label for="floatingInput">Nombre Usuario</label>
+      </div>
+      <div class="form-floating text-dark">
+        <input type="text" class="form-control" id="floatingCorreo" placeholder="Correo Electronico">
+        <label for="floatingInput">Correo Electronico</label>
+      </div>
+      <div class="form-floating text-dark">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+          <label for="floatingPassword">Contraseña</label>
+      </div>
+      <div class="form-floating text-dark">
+        <input type="password" class="form-control" id="floatingConfirmarPassword" placeholder="Confirmar Contraseña">
+        <label for="floatingPassword">Confirmar Contraseña</label>
+      </div>
+
+    </form>      
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      
+      <div class="overlay-panel overlay-right">
+        <h1>Informacion Adicional</h1>
+        <h5>Esta informacion no es obligatoria</h5>
+        <input type="date" >Fecha de Nacimiento</input>
+        <input type="ciudad" placeholder="ciudad">Ciudad</input>
+        <input type="pais" placeholder="pais">Pais</input>
+        
+        <button class="ghost button fa-bold border-white " type="button" onclick="registro()">CREAR CUENTA</button>
+        <br>
+        <br>
+        <h5 id="errorBox" style="width: 100%;">
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/registro.js"></script>
+<script src="js/script.js" charset="utf-8"></script>
+
+</body>
+</html>

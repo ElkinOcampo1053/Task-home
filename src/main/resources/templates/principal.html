@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TASKHOME</title>
+  <link rel="stylesheet" href="../css/principal.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">TASKºHOME</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
+            <span class="title">Tareas</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+            <span class="title">Grupo</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="calendar-outline"></ion-icon></ion-icon></span>
+            <span class="title">Calendario</span>
+            
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+            <span class="title">Mensajes</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+            <span class="title">Configuracion</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <span class="title">Contraseña</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+            <span class="title">Cerrar Sesion</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+        <div class="search">
+          <label>
+            <input type="text" placeholder="Buscar">
+            <ion-icon name="search-outline"></ion-icon>
+          </label>
+        </div>
+        <div class="user">
+          <img src="images/user.jpg">
+        </div>
+      </div>
+      <div class="cardBox">
+        <div class="card">
+          <div>
+            <div class="numbers">7</div>
+            <div class="cardname">Tareas Diarias</div>
+          </div>
+          <div class="iconBx">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div class="numbers">2</div>
+            <div class="cardname">Mensajes</div>
+          </div>
+          <div class="iconBx">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div class="numbers">102</div>
+            <div class="cardname">Puntos</div>
+          </div>
+          <div class="iconBx">
+            <ion-icon name="trophy-outline"></ion-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>Todas las Tareas</h2>
+            <a href="#" class="btn">Vistas</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Nombre</td>
+                <!-- <td>Price</td>
+                <td>payment</td> -->
+                <td>Estado</td>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr>
+                <td>Start Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status delivered">Delivered</span></td>
+              </tr>
+              <tr>
+                <td>Start Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status pendig">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Start Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status return">Return</span></td>
+              </tr>
+              <tr>
+                <td>Start Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status inprogress">In Progress</span></td>
+              </tr>
+              <tr>
+                <td>Start Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status return">Return</span></td>
+              </tr>
+              <tr>
+                <td>Start Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status return">Return</span></td>
+              </tr>
+              <tr>
+                <td>Start Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="status inprogress">In Progress</span></td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- <div class="recentCustomers">
+          <div id="cal"> 
+            <div class="header"> 
+              <span class="left button" id="prev"> &lang; </span> 
+                <span class="left hook"></span> 
+                <span class="month-year" id="label"> June 20&0 </span> 
+                <span class="right hook"></span> 
+                <span class="right button" id="next"> &rang; </span>
+            </div> 
+            <table id="days"> 
+              <td>sun</td> 
+              <td>mon</td> 
+              <td>tue</td> 
+              <td>wed</td> 
+              <td>thu</td> 
+              <td>fri</td> 
+              <td>sat</td>
+            </table> 
+            <div id="cal-frame"> 
+              <table class="curr"> 
+                <tbody> 
+                    <tr><td class="nil"></td><td class="nil"></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr> 
+                    <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="today">11</td><td>12</td></tr> 
+                    <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr> 
+                    <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr> 
+                    <tr><td>27</td><td>28</td><td>29</td><td>30</td><td class="nil"></td><td class="nil"></td><td class="nil"></td></tr> 
+                </tbody> 
+            </table>
+            </div> 
+        </div> -->
+          <!-- <div class="cardHeader">
+            <h2>Recet Customers</h2> -->
+            <!-- </div>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBx"><img src="image/img1.jpg"></div></td>
+              <td><h4>David<br><span>Italy</span></h4></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBx"><img src="image/img2.jpg"></div></td>
+              <td><h4>Pipe<br><span>Bronx</span></h4></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBx"><img src="image/img3.jpg"></div></td>
+              <td><h4>Miguel<br><span>Spain</span></h4></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBx"><img src="image/img4.jpg"></div></td>
+              <td><h4>Lina<br><span>Bogota</span></h4></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBx"><img src="image/img5.jpg"></div></td>
+              <td><h4>Henry<br><span>France</span></h4></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBx"><img src="image/img6.jpg"></div></td>
+              <td><h4>Oscar<br><span>Peru</span></h4></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td width="60px"><div class="imgBx"><img src="image/img7.jpg"></div></td>
+              <td><h4>Hector<br><span>Mexico</span></h4></td>
+            </tr>
+          </table>
+        </div>
+      </div> -->
+      
+
+
+    </div>
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+  <script src="scriptindex.js" charset="utf-8"></script>
+</body>
+</html>
