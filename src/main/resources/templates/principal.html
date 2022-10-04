@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TASKHOME</title>
   <link rel="stylesheet" href="../css/principal.css">
+  <link rel="stylesheet" href="../css/calendar.css">
+  
 </head>
+
 <body>
   <div class="container">
     <div class="navigation">
       <ul>
         <li>
-          <a href="#">
-            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-            <span class="title">TASKºHOME</span>
+          <a href="/index">
+            <span class="icon"><ion-icon name="home-outline" ></ion-icon></span>
+            <span class="title" >TASKºHOME</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a id="boton4"  onclick="visualizarTareas()">
             <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
             <span class="title">Tareas</span>
           </a>
@@ -30,11 +34,10 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a id="boton3"  onclick="visualizarCalendario()">
             <span class="icon"><ion-icon name="calendar-outline"></ion-icon></ion-icon></span>
             <span class="title">Calendario</span>
-            
-          </a>
+
         </li>
         <li>
           <a href="#">
@@ -49,8 +52,8 @@
           </a>
         </li>
         <li>
-          <a href="#">
-            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <a href="/password">
+            <span class="icon"><ion-icon name="lock-closed-outline" ></ion-icon></span>
             <span class="title">Contraseña</span>
           </a>
         </li>
@@ -108,101 +111,140 @@
         </div>
       </div>
 
-      <div class="details">
-        <div class="recentOrders">
-          <div class="cardHeader">
-            <h2>Todas las Tareas</h2>
-            <a href="#" class="btn">Vistas</a>
-          </div>
-          <table>
-            <thead>
-              <tr>
-                <td>Nombre</td>
-                <!-- <td>Price</td>
-                <td>payment</td> -->
-                <td>Estado</td>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- <tr>
-                <td>Start Refrigerator</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td><span class="status delivered">Delivered</span></td>
-              </tr>
-              <tr>
-                <td>Start Refrigerator</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td><span class="status pendig">Pending</span></td>
-              </tr>
-              <tr>
-                <td>Start Refrigerator</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td><span class="status return">Return</span></td>
-              </tr>
-              <tr>
-                <td>Start Refrigerator</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td><span class="status inprogress">In Progress</span></td>
-              </tr>
-              <tr>
-                <td>Start Refrigerator</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td><span class="status return">Return</span></td>
-              </tr>
-              <tr>
-                <td>Start Refrigerator</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td><span class="status return">Return</span></td>
-              </tr>
-              <tr>
-                <td>Start Refrigerator</td>
-                <td>$1200</td>
-                <td>Paid</td>
-                <td><span class="status inprogress">In Progress</span></td>
-              </tr> -->
-            </tbody>
-          </table>
-        </div>
+      <div id="tablaTareas">
 
-        <!-- <div class="recentCustomers">
-          <div id="cal"> 
-            <div class="header"> 
-              <span class="left button" id="prev"> &lang; </span> 
-                <span class="left hook"></span> 
-                <span class="month-year" id="label"> June 20&0 </span> 
-                <span class="right hook"></span> 
-                <span class="right button" id="next"> &rang; </span>
-            </div> 
-            <table id="days"> 
-              <td>sun</td> 
-              <td>mon</td> 
-              <td>tue</td> 
-              <td>wed</td> 
-              <td>thu</td> 
-              <td>fri</td> 
-              <td>sat</td>
-            </table> 
-            <div id="cal-frame"> 
-              <table class="curr"> 
-                <tbody> 
-                    <tr><td class="nil"></td><td class="nil"></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr> 
-                    <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="today">11</td><td>12</td></tr> 
-                    <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr> 
-                    <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr> 
-                    <tr><td>27</td><td>28</td><td>29</td><td>30</td><td class="nil"></td><td class="nil"></td><td class="nil"></td></tr> 
-                </tbody> 
-            </table>
-            </div> 
-        </div> -->
-          <!-- <div class="cardHeader">
-            <h2>Recet Customers</h2> -->
-            <!-- </div>
+      </div>
+      <table style="width: 100%;">
+        <td align="left" style="width: 80%;"  >
+          <div class="details" style="display:none" id="ListTareas">
+            <div class="recentOrders">
+              <div class="cardHeader">
+                <h2>Todas las Tareas</h2>
+                <a href="#" class="btn">Vistas</a>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <td>Nombre</td>
+                     <td>Fecha Inicial</td>
+                    <td>Fecha Final</td>
+                    <td>Estado</td>
+                  </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                    <td>Sacar el perro</td>
+                    <td>8:00</td>
+                    <td>10:00</td>
+                    <td><span class="status delivered">completado</span></td>
+                  </tr>
+                  <tr>
+                    <td>Lavar la ropa</td>
+                    <td>10:00</td>
+                    <td>10:30</td>
+                    <td><span class="status pendig">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>Lavar los platos</td>
+                    <td>11:00</td>
+                    <td>11:30</td>
+                    <td><span class="status pendig">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>cocinar</td>
+                    <td>7:00</td>
+                    <td>8:00</td>
+                    <td><span class="status inprogress">completado</span></td>
+                  </tr>
+                  <tr>
+                    <td>Start Refrigerator</td>
+                    <td>$1200</td>
+                    <td>Paid</td>
+                    <td><span class="status return">Return</span></td>
+                  </tr>
+                  <tr>
+                    <td>Start Refrigerator</td>
+                    <td>$1200</td>
+                    <td>Paid</td>
+                    <td><span class="status return">Return</span></td>
+                  </tr>
+                  <tr>
+                    <td>Start Refrigerator</td>
+                    <td>$1200</td>
+                    <td>Paid</td>
+                    <td><span class="status inprogress">In Progress</span></td>
+                  </tr>
+                  </tbody>
+              </table>
+            </div>
+        </td>
+        
+        <!-- Calendario de Google
+        <div align="right">
+          <iframe src="https://calendar.google.com/calendar/embed?height=350&wkst=1&bgcolor=%230c7489&ctz=America%2FBogota&showTitle=1&showNav=0&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&src=ZXMuY28jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%230B8043" style="border-width:10" width="420" height="350" frameborder="0" scrolling="no"></iframe>
+        </div>
+        -->
+
+        <td align="right" style="width: 100%;"  >
+          <div class="contianer" id="Calendario" style="display:none">
+            <div class="calendar">
+              <div class="calendar-header">
+                <span class="month-picker" id="month-picker"> May </span>
+                <div class="year-picker" id="year-picker">
+                  <span class="year-change" id="pre-year">
+                    <pre><</pre>
+                  </span>
+                  <span id="year">2020 </span>
+                  <span class="year-change" id="next-year">
+                    <pre>></pre>
+                  </span>
+                </div>
+              </div>
+       
+              <div class="calendar-body">
+                <div class="calendar-week-days">
+                  <div>Dom</div>
+                  <div>Lun</div>
+                  <div>Mar</div>
+                  <div>Mie</div>
+                  <div>Jue</div>
+                  <div>Vie</div>
+                  <div>Sab</div>
+                </div>
+                <div class="calendar-days">
+                </div>
+              </div>
+              <div class="calendar-footer">
+              </div>
+              <div align="left" class="date-time-formate">
+                
+                <div class="date-time-value">
+                  
+                  <table style="width: 180%;">
+                    <td>
+                      <div  style="width: 40%;" class="day-text-formate">Hoy</div>
+                    </td>
+                    <td>
+                      <div class="time-formate">02:51:20</div>
+                      <div class="date-formate">23 - Julio - 2022</div>
+                    </td>
+                  </table>
+                </div>
+              </div>
+              <div class="month-list"></div>
+            </div>
+          </div>
+    
+        </td>
+      </table>
+
+      
+      
+
+        <!--
+         <div class="cardHeader">
+            <h2>Recet Customers</h2> 
+         </div>
           <table>
             <tr>
               <td width="60px"><div class="imgBx"><img src="image/img1.jpg"></div></td>
@@ -246,18 +288,17 @@
             </tr>
           </table>
         </div>
-      </div> -->
+      </div>-->
       
 
 
     </div>
     </div>
   </div>
-
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-
+  <script src="js/calendar.js" charset="utf-8"></script>
+  <script src="js/tareas.js" charset="utf-8"></script>
   <script src="scriptindex.js" charset="utf-8"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  
 </body>
 </html>

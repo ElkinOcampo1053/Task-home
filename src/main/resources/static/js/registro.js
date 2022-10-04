@@ -21,7 +21,7 @@ const registro = () => {
         return;
     }
     if (password != confirmarpassword) {
-        showError("Las CONTRASEÑAS  no coinciden");
+        showError("Las CONTRASEÑAS no coinciden");
         return;
     }
 
@@ -48,6 +48,8 @@ const postTovalidateCorreo = async (bodyObject) => {
         showError(message);
     } else {
         //const message = await response.text();
+
+        
         const message = "Correo Creado correctamente" ;
         showError(message);
     }

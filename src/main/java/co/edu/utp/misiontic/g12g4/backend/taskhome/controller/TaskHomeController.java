@@ -32,4 +32,9 @@ public class TaskHomeController {
     public String goToRegistro(Model model) {
         return "registro";
     }
+
+    @GetMapping("/password")
+    public String goToPassword(Model model) {
+        return "password";
+    }
 }
