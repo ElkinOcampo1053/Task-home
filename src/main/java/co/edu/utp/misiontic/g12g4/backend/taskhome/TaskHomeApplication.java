@@ -26,8 +26,6 @@ public class TaskHomeApplication {
 		@Override
 		public void run(String... args) throws Exception {
 			// loadUsers();
-			// loadCategories();
-			// loadMovies1();
 		}
 
 		//private void loadUsers() {

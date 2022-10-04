@@ -1,6 +1,6 @@
 const registro = () => {
     const username = document.getElementById("floatingInput").value;
-    const correo = document.getElementById("floatingCorreo").value;
+    const email = document.getElementById("floatingCorreo").value;
     const password = document.getElementById("floatingPassword").value;
     const confirmarpassword = document.getElementById("floatingConfirmarPassword").value;
 
@@ -8,7 +8,7 @@ const registro = () => {
         showError("El NOMBRE DEL USUARIO es requerido");
         return;
     }
-    if (correo == "") {
+    if (email == "") {
         showError("El CORREO ELECTRONICO es requerido");
         return;
     }
@@ -26,8 +26,7 @@ const registro = () => {
     }
 
     const body = {
-        "username": username,
-        "password": password
+        "email": email
     };
     postTovalidateCorreo(body);
 
@@ -45,17 +44,11 @@ const postTovalidateCorreo = async (bodyObject) => {
     });
 
     if (response.ok) {
-        const user = await response.json();
-
-        localStorage.setItem("loggedUser", JSON.stringify(user));
-        
-        alert("Bienvenido "+user.username+"!", "success");
-        
-        await new Promise(r => setTimeout(r, 2000));
-
-        window.location.href = "/principal";
+        const message = "El correo Electronico, ya se encuentra en uso, favor cambie de corrreo" ;
+        showError(message);
     } else {
-        const message = await response.text();
+        //const message = await response.text();
+        const message = "prueba" ;
         showError(message);
     }
 };

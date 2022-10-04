@@ -33,11 +33,6 @@ public class SecurityServiceImpl implements SecurityService {
         throw new RuntimeException("Credenciales inválidas");
          }
 
-        //var userOp = userRepository.findByUsernameAndPasswordAndActiveIsTrue(username, password);
-       // if (userOp.isEmpty()) {
-       //     throw new RuntimeException("Credenciales inválidas");
-       // }
-
        var correo = emailOp.get();
         return EmailResponse.builder()
                 .email(correo.getEmail())        

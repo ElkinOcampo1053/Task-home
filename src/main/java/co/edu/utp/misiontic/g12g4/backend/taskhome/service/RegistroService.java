@@ -2,24 +2,23 @@ package co.edu.utp.misiontic.g12g4.backend.taskhome.service;
 
 import java.util.List;
 
-import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailRequest;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailResponse;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.RegistroRequest;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.RegistroResponse;
 
 public interface RegistroService {
 
-    EmailResponse validateEmail(String correo);
+    RegistroResponse validateRegistro(String email);
 
-    List<EmailResponse> getAllUsers();
+    RegistroResponse getUserByEmail(String email);
 
-    EmailResponse getUserByUsername(String username);
+    void createEmail(RegistroRequest email);
 
-    void createUser(EmailRequest user);
+    void updateEmail(RegistroRequest email);
 
-    void updateUser(EmailRequest user);
+    void deleteEmail(String email);
 
-    void deleteUser(String email);
+    void activateEmail(String email);
 
-    void activateUser(String email);
-
-    void inactivateUser(String email);
+    void inactivateEmail(String email);
 }
+

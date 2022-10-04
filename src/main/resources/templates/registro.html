@@ -53,19 +53,19 @@
       <input type="confirmar-password" placeholder="Confirmar Password">Confirmar Contraseña</input>
       -->
       <div class="form-floating text-dark">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Nombre Usuario">
+          <input type="text" class="form-control" id="floatingInput" placeholder="NombreUsuario" minlength="4" maxlength="20">
           <label for="floatingInput">Nombre Usuario</label>
       </div>
       <div class="form-floating text-dark">
-        <input type="text" class="form-control" id="floatingCorreo" placeholder="Correo Electronico">
+        <input type="text" class="form-control" id="floatingCorreo" placeholder="CorreoElectronico" minlength="4" maxlength="30">
         <label for="floatingInput">Correo Electronico</label>
       </div>
       <div class="form-floating text-dark">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" minlength="4" maxlength="8">
           <label for="floatingPassword">Contraseña</label>
       </div>
       <div class="form-floating text-dark">
-        <input type="password" class="form-control" id="floatingConfirmarPassword" placeholder="Confirmar Contraseña">
+        <input type="password" class="form-control" id="floatingConfirmarPassword" placeholder="ConfirmarContraseña" minlength="4" maxlength="8">
         <label for="floatingPassword">Confirmar Contraseña</label>
       </div>
 
@@ -78,13 +78,13 @@
         <h1>Informacion Adicional</h1>
         <h5>Esta informacion no es obligatoria</h5>
         <input type="date" >Fecha de Nacimiento</input>
-        <input type="ciudad" placeholder="ciudad">Ciudad</input>
-        <input type="pais" placeholder="pais">Pais</input>
+        <input type="ciudad" placeholder="ciudad" minlength="4" maxlength="15">Ciudad</input>
+        <input type="pais" placeholder="pais" minlength="4" maxlength="15">Pais</input>
         
         <button class="ghost button fa-bold border-white " type="button" onclick="registro()">CREAR CUENTA</button>
         <br>
         <br>
-        <h5 id="errorBox" style="width: 100%;">
+        <h5 id="errorBox">
         </h5>
       </div>
     </div>
