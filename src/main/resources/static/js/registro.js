@@ -48,7 +48,7 @@ const postTovalidateCorreo = async (bodyObject) => {
         showError(message);
     } else {
         //const message = await response.text();
-        const message = "prueba" ;
+        const message = "Correo Creado correctamente" ;
         showError(message);
     }
 };
