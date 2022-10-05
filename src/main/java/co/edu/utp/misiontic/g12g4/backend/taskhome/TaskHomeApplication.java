@@ -20,7 +20,7 @@ public class TaskHomeApplication {
 	@Data
 	@AllArgsConstructor
 	public static class DataLoader implements CommandLineRunner {
-
+ 
 		private final EmailRepository userRepository;
 
 		@Override

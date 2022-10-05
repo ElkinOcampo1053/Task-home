@@ -168,9 +168,16 @@
         </div>
   
       </div>
+      <!--
+      <div class="window-notice" id="window-notice" style="display: block;">
+        <div class="content">
+            <div class="content-text">Este sitio utiliza cookies para obtener la mejor experiencia en nuestra web. 
+            <div class="content-buttons"><a id="close-button" onclick="visualizarVentanaEmergente()">Aceptar</a></div>
+        </div>
+      </div>-->
 
       <div th:if="${RegistroTareas != null and !RegistroTareas.empty}" id="tablaTareas">
-          <div class="details" style="display:block" id="ListTareas">
+          <div class="details" style="display:block " id="ListTareas">
             <div class="recentOrders">
               <div class="cardHeader">
                 <h2>Todas las Tareas</h2>
@@ -179,11 +186,16 @@
               <table>
                 <thead>
                   <tr>
+                  </tr>
+                  <tr>
                     <td>Id</td>
                      <td>Fecha Estimada</td>
                     <td>Hora Estimada</td>
                     <td>Observaciones</td>
                     <td>Estado</td>
+                    <td align="right">Crear</td>
+                    <td align="right">Modificar</td>
+                    <td align="right">Eliminar</td>
                   </tr>
                 </thead>
                 <tbody>   
@@ -194,7 +206,18 @@
                     <td th:text="${RegistroTarea.hora_estimada_ejecucion}">Mostrar Hora Estimada</td>
                     <td th:text="${RegistroTarea.Observaciones}">Mostrar Id</td>
                     <td th:text="${RegistroTarea.finalizado}">Mostrar Estado</td>
-                    <td><span class="status delivered">completado</span></td>
+                    <td align="right">
+                      <!--Agregar-->
+                      <a class="btn" th:href="@{/agregarTarea}" style="width: 150px; height: 50px; background-color: green;">Crear Tarea</a>
+                    </td>
+                    <td align="right">
+                      <!--Modificar-->
+                    <a class="btn" th:href="@{/modificarTarea/} + ${RegistroTarea.id} " style="width: 150px; height: 50px;">Modificar Tarea</a>
+                    </td>
+                    <td align="right">
+                      <!--Eliminar-->
+                    <a class="btn" th:href="@{/eliminarTarea/} + ${RegistroTarea.id}" style="width: 150px; height: 50px; background-color:brown;">Eliminar Tarea</a>
+                    </td>
                   </tr>
                   
                   </tbody>
@@ -212,6 +235,16 @@
             </div>
             <table>
               <thead>
+                <tr>
+                  <center>
+                  <!--Agregar-->
+                  <a class="btn" th:href="@{/agregarUsuario}" style="width: 250px; height: 50px; background-color: green;">Crear Usuario</a>
+                  <!--Modificar-->
+                  <a class="btn" th:href="@{/modificarUsuario}" style="width: 250px; height: 50px;">Modificar Usuario</a>
+                  <!--Eliminar-->
+                  <a class="btn" th:href="@{/eliminarUsuario}" style="width: 250px; height: 50px; background-color:brown;">Eliminar Usuario</a>
+                  </center>
+                </tr>
                 <tr>
                   <td>Nombre</td>
                    <td>Cumpleaños</td>

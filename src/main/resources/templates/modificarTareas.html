@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+                xmlns="htttp://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+    <link rel="stylesheet" href="../css/principal.css">
+    <link rel="stylesheet" href="../css/calendar.css">
+    <link rel="stylesheet" href="../css/modificarTareas.css">
+</head>
+<body>
+    <div class="container">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="/index">
+              <span class="icon"><ion-icon name="home-outline" ></ion-icon></span>
+              <span class="title" >TASKºHOME</span>
+            </a>
+          </li>
+          <li>
+            <a id="boton1"  href="/principal">
+              <span class="icon"><ion-icon name="home-outline"></ion-icon></ion-icon></span>
+              <span class="title">Menu Principal</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="main">
+        <div class="topbar">
+          <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
+          <div class="user">
+            <img src="images/user.jpg">
+          </div>
+        </div>
+        
+        <center>
+          
+          <div style="background-color:lightgray; width: 60%; border-radius: 3%;">
+            <br>
+            <h1>Listado de tareas</h1>
+            <br>
+            <form th:action="@{/guardarTarea}" method="post" th:object="${registroTareas}" >
+                <input type="hidden" name="id" th:field="*{id}"/> <!--Si esto no se pone el lo duplica-->
+                <label style="width: 200px" for="FechaEjecucion">Fecha estimada de ejecucion :</label>
+                <input style="width: 200px" class="form-floating text-dark" type="date" name="fecha_estimada_ejecucion" th:field="*{fecha_estimada_ejecucion}"/>
+                <br>
+                <label style="width: 200px" for="HoraEjecucion">Hora estimada de ejecucion &nbsp :</label>
+                <input style="width: 200px" type="time" name="hora_estimada_ejecucion" th:field="*{hora_estimada_ejecucion}"/>
+                <br>
+                <label style="width: 200px" for="id_tarea">Id Tarea &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                <input style="width: 200px" type="text" name="id_tarea" th:field="*{id_tarea}"/>
+                <br>
+                <label for="id_usuario">Id Usuario &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                <input style="width: 200px" type="text" name="id_usuario" th:field="*{id_usuario}"/>
+                <br>
+                <label for="id_grupo_familiar">Id Grupo Familiar &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                <input style="width: 200px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"/>
+                <br>
+                <label for="observaciones">Observaciones &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                <input style="width: 200px" type="text" name="observaciones" th:field="*{observaciones}"/>
+                <br>
+                <label for="FechaFinalizacion">Fecha Finalizacion &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                <input style="width: 200px" type="date" name="fecha_finalizacion" th:field="*{fecha_finalizacion}"/>
+                <br>
+                <label for="HoraFinalizacion">Hora Finalizacion &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp:</label>
+                <input style="width: 200px" type="time" name="hora_finalizacion" th:field="*{hora_finalizacion}"/>
+                <br>
+                <label for="Finalizado">Finalizado &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                <input style="width: 200px" type="text" name="finalizado" th:field="*{finalizado}"/>
+                <br>
+                <input type="submit" name="guardarTarea" value="guardar"/>
+                <br>
+                <br>
+            </form>
+          </table>
+        </center>
+
+      </div>
+    </div>
+    <script src="js/principal.js" charset="utf-8"></script>
+    <script src="js/tareas.js" charset="utf-8"></script>
+    <script src="js/GrupoFamiliar.js" charset="utf-8"></script>
+    <script src="scriptindex.js" charset="utf-8"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  
+  </body>
+  </html>

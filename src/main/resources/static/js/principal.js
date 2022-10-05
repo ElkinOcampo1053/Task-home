@@ -169,7 +169,14 @@ const isLeapYear = (year) => {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-verificarEstado
-{
 
+function visualizarVentanaEmergente(){
+  if (document.getElementById('window-notice').style.display == 'block')
+  {
+    document.getElementById('window-notice').style.display = 'none';
+  }
+  else
+  {
+    document.getElementById('window-notice').style.display = 'block';
+  }
 }
