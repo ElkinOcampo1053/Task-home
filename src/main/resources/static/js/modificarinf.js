@@ -1,29 +1,16 @@
 const login = () => {
-    var ErrorInformacion = false;
-    var Mensaje = "";
-
     const email = document.getElementById("floatingInput").value;
     const password = document.getElementById("floatingPassword").value;
 
     if (email == "") {
-        ErrorInformacion =true;
-        Mensaje = Mensaje +  "El CORREO ELECTRONICO es requerido \n";
-    }
-    if (password == "") {
-        if (ErrorInformacion)
-        {
-            Mensaje = Mensaje + ", "
-        }
-        ErrorInformacion =true;
-        Mensaje = Mensaje + "La CONTRASEÑA es requerida \n";
-    }
-
-    if (ErrorInformacion== true)
-    {
-        showError(Mensaje);
+        showError("El CORREO ELECTRONICO es requerido");
         return;
     }
-    
+    if (password == "") {
+        showError("La CONTRASEÑA es requerida");
+        return;
+    }
+
     const body = {
         "email": email,
         "password": password,

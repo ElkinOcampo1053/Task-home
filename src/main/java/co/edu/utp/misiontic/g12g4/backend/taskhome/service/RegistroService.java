@@ -1,12 +1,10 @@
 package co.edu.utp.misiontic.g12g4.backend.taskhome.service;
 
-import java.util.List;
-
 import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.RegistroRequest;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.RegistroResponse;
 
-public interface RegistroService {
 
+public interface RegistroService {
     RegistroResponse validateRegistro(String email);
 
     RegistroResponse getUserByEmail(String email);

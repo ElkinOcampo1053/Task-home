@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -8,50 +8,39 @@
   <title>Login</title>
   <link rel="shortcut icon" href="../images/TaskHome.ico" />
   <link rel="stylesheet" href="../css/login.css">
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-  
+  <link rel="stylesheet" href="../css/publicidad.css">
+  <link rel="stylesheet" href="../css/popmenu.css">
 </head>
 
 <body style="background-color:#b5ebf7;">
 <div class="container" id="container">
+  <h1>Crear Cuenta</h1>
   
-  <div class="form-container sign-up-container">
-    
-    <form action="#">
-      <h1 class="Logo">TASKHOME</h1>
-      <h1>Crear Cuenta</h1>
-    </form>
-
-  </div>
   <div class="form-container sign-in-container">
     <form action="#">
       <h1>Iniciar sesión</h1>
-
+      <h5>Favor ingrese la siguiente informacion para ingresar al sistema</h5>
      <div class="form-floating text-dark">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Correo Electronico" minlength="4" maxlength="30">
-        <label for="floatingInput">Correo Electronico</label>
+      <label for="floatingInput">Correo Electronico</label>
+      <input type="text" class="form-control" id="floatingInput" placeholder="Correo Electronico" minlength="4" maxlength="30">
     </div>
     <div class="form-floating text-dark">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="4" maxlength="8">
-        <label for="floatingPassword">Password</label>
+      <label for="floatingPassword">Password</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="4" maxlength="8">
     </div>
 
       <a href="#">¿Olvidaste tu contraseña?</a>
 
-      <button class="ghost button fa-bold border-white " type="button" onclick="login()">INGRESAR</button>
-      
+      <button class="ghost button border-white " type="button" onclick="login()">INGRESAR</button>
+
+
+        
+      <br>
       <div id="errorBox">
-
       </div>
-
-      <!--  Comentado por Elkin
-      <b>
-        <a class="ghost button fw-bold border-white " href="/principal" id="signUp"  >INGRESAR</a>
-      </b>
-      -->
-    </form>      
+    </form>     
   </div>
+
   <div class="overlay-container">
     <div class="overlay">
       <div class="overlay-panel overlay-left">
@@ -63,19 +52,33 @@
         <h1>¡Hola, Bienvenido!</h1>
         <p>Ingrese sus datos personales para abrir una cuenta con nosotros</p>
         <b>
-          <a class="ghost button fw-bold border-white " href="/registro" id="signUp"  >CREAR CUENTA</a>
+          <a class="ghost button border-white " href="/registro" id="signUp"  >CREAR CUENTA</a>
         </b>
       </div>
     </div>
   </div>
-
-
-
-
 </div>
+<div>
+  <br>
+</div>
+<div id="hellobar-bar" class="regular closable">
+  <div class="hb-content-wrapper">
+      <div class="hb-text-wrapper">
+          <div class="hb-headline-text">
+              <p><span>Espacio para publicidad, servicio gratuito</span></p>
+          </div>
+      </div>
+      <a  target="_blank" class="hb-cta hb-cta-button">
+          <div class="hb-text-holder">
+              <p>Premium</p>
+          </div>
+      </a>
+  </div>
+</div>
+
+
 <script src="js/login.js"></script>
 <script src="js/script.js" charset="utf-8"></script>
-
 
 </body>
 </html>

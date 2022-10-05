@@ -5,11 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="../css/registro.css">
-  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <title>Registro</title>
   <link rel="shortcut icon" href="../images/TaskHome.ico" />
+  <link rel="stylesheet" href="../css/registro.css">
+  <link rel="stylesheet" href="../css/publicidad.css">
 </head>
 
 <body style="background-color:#b5ebf7;">
@@ -24,25 +23,22 @@
   </div>
   <div class="form-container sign-in-container">
     <form action="#">
-      <h1>Crear cuenta<h1>
-        <br>
+      <h3>Crear cuenta</h3>
       <h5>Favor a continuacion digite la siguiente informacion para crear su cuenta</h5>
-
       <div class="form-floating text-dark">
-          <input type="text" class="form-control" id="floatingInput" placeholder="NombreUsuario" minlength="4" maxlength="20">
-          <label for="floatingInput">Nombre Usuario</label>
-      </div>
+        <label for="floatingInput">Nombre Usuario</label>
+          <input type="text" class="form-control" id="floatingInput" placeholder="NombreUsuario" minlength="4" maxlength="20">      </div>
       <div class="form-floating text-dark">
-        <input type="text" class="form-control" id="floatingCorreo" placeholder="CorreoElectronico" minlength="4" maxlength="30">
         <label for="floatingInput">Correo Electronico</label>
+        <input type="text" class="form-control" id="floatingCorreo" placeholder="CorreoElectronico" minlength="4" maxlength="30">
       </div>
       <div class="form-floating text-dark">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" minlength="4" maxlength="8">
-          <label for="floatingPassword">Contraseña</label>
+        <label for="floatingPassword">Contraseña</label>  
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" minlength="4" maxlength="8">
       </div>
       <div class="form-floating text-dark">
-        <input type="password" class="form-control" id="floatingConfirmarPassword" placeholder="ConfirmarContraseña" minlength="4" maxlength="8">
         <label for="floatingPassword">Confirmar Contraseña</label>
+        <input type="password" class="form-control" id="floatingConfirmarPassword" placeholder="ConfirmarContraseña" minlength="4" maxlength="8">
       </div>
 
     </form>      
@@ -51,22 +47,52 @@
     <div class="overlay">
       
       <div class="overlay-panel overlay-right">
-        <h1>Informacion Adicional</h1>
+        <h3>Informacion Adicional</h3>
         <h5>Esta informacion no es obligatoria</h5>
-        <input type="date" >Fecha de Nacimiento</input>
-        <input type="ciudad" placeholder="ciudad" minlength="4" maxlength="15">Ciudad</input>
-        <input type="pais" placeholder="pais" minlength="4" maxlength="15">Pais</input>
+
+        <div class="form-floating text-dark">
+          <label for="floatingPassword">Fecha de Nacimiento</label>
+          <input type="date" class="form-control" id="floatingFechaNacimiento" placeholder="FechaNacimiento">
+        </div>
+
+        <div class="form-floating text-dark">
+          <label for="floatingCiudad">Ciudad</label>
+          <input type="text" class="form-control" id="floatingCiudad" placeholder="Ciudad" minlength="4" maxlength="15">
+        </div>
+
+        <div class="form-floating text-dark">
+          <label for="floatingCiudad">Pais</label>
+          <input type="text" class="form-control" id="floatingPaisCiudad" placeholder="Pais" minlength="4" maxlength="15">
+        </div>
         
         <br>
-        <button class="ghost button fa-bold border-white " type="button" onclick="registro()">CREAR CUENTA</button>
+        <button class="ghost button border-white " type="button" onclick="registro()">CREAR CUENTA</button>
         <br>
-        <a class="ghost button fa-bold border-white " type="button" href="/login">VOLVER ATRAS</a>
-        <br>
-        <br>
+        <a class="ghost button border-white " type="button" href="/login">ATRAS</a>
+
         <h5 id="errorBox">
         </h5>
+
       </div>
     </div>
+  </div>
+</div>
+
+<div>
+  <br>
+</div>
+<div id="hellobar-bar" class="regular closable">
+  <div class="hb-content-wrapper">
+      <div class="hb-text-wrapper">
+          <div class="hb-headline-text">
+              <p><span>Espacio para publicidad, servicio gratuito</span></p>
+          </div>
+      </div>
+      <a  target="_blank" class="hb-cta hb-cta-button">
+          <div class="hb-text-holder">
+              <p>Premium</p>
+          </div>
+      </a>
   </div>
 </div>
 

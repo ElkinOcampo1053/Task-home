@@ -1,27 +1,62 @@
 const registro = () => {
+    var ErrorInformacion = false;
+    var Mensaje = "";
+
     const username = document.getElementById("floatingInput").value;
     const email = document.getElementById("floatingCorreo").value;
     const password = document.getElementById("floatingPassword").value;
     const confirmarpassword = document.getElementById("floatingConfirmarPassword").value;
 
     if (username == "") {
-        showError("El NOMBRE DEL USUARIO es requerido");
-        return;
+        ErrorInformacion =true;
+
+        Mensaje ="El NOMBRE DEL USUARIO es requerido";
     }
     if (email == "") {
-        showError("El CORREO ELECTRONICO es requerido");
-        return;
+        
+        if (ErrorInformacion)
+        {
+            Mensaje = Mensaje + ", "
+        }
+
+        ErrorInformacion =true;
+        Mensaje =Mensaje + "El CORREO ELECTRONICO es requerido";
     }
     if (password == "") {
-        showError("La CONTRASEÑA es requerida");
-        return;
+
+        if (ErrorInformacion)
+        {
+            Mensaje = Mensaje + ", "
+        }
+
+        ErrorInformacion =true;
+        Mensaje =Mensaje +"La CONTRASEÑA es requerida";
     }
     if (confirmarpassword == "") {
-        showError("La CONTRASEÑA de confirmacion es requerida");
-        return;
+
+        if (ErrorInformacion)
+        {
+            Mensaje = Mensaje + ", "
+        }
+
+        ErrorInformacion =true;
+        Mensaje =Mensaje +"La CONTRASEÑA de confirmacion es requerida";
     }
+
     if (password != confirmarpassword) {
-        showError("Las CONTRASEÑAS no coinciden");
+
+        if (ErrorInformacion)
+        {
+            Mensaje = Mensaje + ", "
+        }
+
+        ErrorInformacion =true;
+        sMensaje =Mensaje +"Las CONTRASEÑAS no coinciden";
+    }
+
+    if (ErrorInformacion== true)
+    {
+        showError(Mensaje);
         return;
     }
 
@@ -67,3 +102,4 @@ const alert = (message, type) => {
         '</div>'
     ].join('')
 }
+
