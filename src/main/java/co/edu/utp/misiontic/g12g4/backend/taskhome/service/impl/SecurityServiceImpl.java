@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailRequest;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailResponse;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.User;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.Usuarios;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.model.repository.EmailRepository;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.service.SecurityService;
 import lombok.AllArgsConstructor;
@@ -25,7 +25,7 @@ public class SecurityServiceImpl implements SecurityService {
          }
 
          var Email = emailOp.get();
-         if (!Email.getActive()) {
+         if (!Email.getEstado()) {
          throw new RuntimeException("Usuario inactivo");
          }
 
@@ -36,8 +36,7 @@ public class SecurityServiceImpl implements SecurityService {
        var correo = emailOp.get();
         return EmailResponse.builder()
                 .email(correo.getEmail())        
-                .username(correo.getNombreusuario())
-                .name(correo.getLoginusuario())
+                .username(correo.getNombre_usuario())
                 .build();
     }
 
@@ -45,8 +44,7 @@ public class SecurityServiceImpl implements SecurityService {
     public List<EmailResponse> getAllEmail() {
         return emailRepository.findAll().stream()
                 .map(u -> EmailResponse.builder()
-                        .username(u.getNombreusuario())
-                        .name(u.getLoginusuario())
+                        .username(u.getNombre_usuario())
                         .email(u.getEmail())
                         //.admin(u.getAdmin())
                         .build())
@@ -62,8 +60,7 @@ public class SecurityServiceImpl implements SecurityService {
 
         var Email = EmailOp.get();
         return EmailResponse.builder()
-                .username(Email.getNombreusuario())
-                .name(Email.getLoginusuario())
+                .username(Email.getNombre_usuario())
                 .email(Email.getEmail())
                 .build();
     }
@@ -81,12 +78,11 @@ public class SecurityServiceImpl implements SecurityService {
             throw new RuntimeException("Ya existe un usuario registrado con ese correo electrónico");
         }
 
-        var emailDb = new User();
-        emailDb.setNombreusuario(email.getUsername());
+        var emailDb = new Usuarios();
+        emailDb.setNombre_usuario(email.getUsername());
         emailDb.setPassword(email.getPassword());
-        emailDb.setLoginusuario(email.getName());
         emailDb.setEmail(email.getEmail());
-        emailDb.setActive(true);
+        emailDb.setEstado(true);
         emailDb = emailRepository.save(emailDb);
 
     }
@@ -99,8 +95,7 @@ public class SecurityServiceImpl implements SecurityService {
         }
 
         var emailDb = EmailOp.get();
-        emailDb.setNombreusuario(Email.getUsername());
-        emailDb.setLoginusuario(Email.getName());
+        emailDb.setNombre_usuario(Email.getUsername());
         emailDb.setEmail(Email.getEmail());
         emailDb = emailRepository.save(emailDb);
     }
@@ -123,7 +118,7 @@ public class SecurityServiceImpl implements SecurityService {
         }
 
         var Email = emailOp.get();
-        Email.setActive(true);
+        Email.setEstado(true);
         emailRepository.save(Email);
     }
 
@@ -135,7 +130,7 @@ public class SecurityServiceImpl implements SecurityService {
         }
 
         var Email = emailOp.get();
-        Email.setActive(false);
+        Email.setEstado(false);
         emailRepository.save(Email);
 
     }

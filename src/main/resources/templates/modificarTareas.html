@@ -42,43 +42,44 @@
         <center>
           
           <div style="background-color:lightgray; width: 60%; border-radius: 3%;">
-            <br>
-            <h1>Listado de tareas</h1>
-            <br>
-            <form th:action="@{/guardarTarea}" method="post" th:object="${registroTareas}" >
-                <input type="hidden" name="id" th:field="*{id}"/> <!--Si esto no se pone el lo duplica-->
-                <label style="width: 200px" for="FechaEjecucion">Fecha estimada de ejecucion :</label>
-                <input style="width: 200px" class="form-floating text-dark" type="date" name="fecha_estimada_ejecucion" th:field="*{fecha_estimada_ejecucion}"/>
                 <br>
-                <label style="width: 200px" for="HoraEjecucion">Hora estimada de ejecucion &nbsp :</label>
-                <input style="width: 200px" type="time" name="hora_estimada_ejecucion" th:field="*{hora_estimada_ejecucion}"/>
+                <h1>Listado de tareas</h1>
                 <br>
-                <label style="width: 200px" for="id_tarea">Id Tarea &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <input style="width: 200px" type="text" name="id_tarea" th:field="*{id_tarea}"/>
-                <br>
-                <label for="id_usuario">Id Usuario &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <input style="width: 200px" type="text" name="id_usuario" th:field="*{id_usuario}"/>
-                <br>
-                <label for="id_grupo_familiar">Id Grupo Familiar &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <input style="width: 200px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"/>
-                <br>
-                <label for="observaciones">Observaciones &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <input style="width: 200px" type="text" name="observaciones" th:field="*{observaciones}"/>
-                <br>
-                <label for="FechaFinalizacion">Fecha Finalizacion &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <input style="width: 200px" type="date" name="fecha_finalizacion" th:field="*{fecha_finalizacion}"/>
-                <br>
-                <label for="HoraFinalizacion">Hora Finalizacion &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp:</label>
-                <input style="width: 200px" type="time" name="hora_finalizacion" th:field="*{hora_finalizacion}"/>
-                <br>
-                <label for="Finalizado">Finalizado &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <input style="width: 200px" type="text" name="finalizado" th:field="*{finalizado}"/>
-                <br>
-                <input type="submit" name="guardarTarea" value="guardar"/>
-                <br>
-                <br>
-            </form>
-          </table>
+                <form th:action="@{/guardarTarea}" method="post" th:object="${registroTareas}" >
+                  <input type="hidden" name="id" th:field="*{id}"/> <!--Si esto no se pone el lo duplica-->
+                  <label style="width: 200px" for="FechaEjecucion">Fecha estimada de ejecucion :</label>
+                  <input style="width: 200px" class="form-floating text-dark" type="date" name="fecha_estimada_ejecucion" th:field="*{fecha_estimada_ejecucion}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <label style="width: 200px" for="HoraEjecucion">Hora estimada de ejecucion &nbsp :</label>
+                  <input style="width: 200px" type="time" name="hora_estimada_ejecucion" th:field="*{hora_estimada_ejecucion}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <label style="width: 200px" for="id_tarea">Id Tarea &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                  <input style="width: 200px" type="text" name="id_tarea" th:field="*{id_tarea}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <label for="id_usuario">Id Usuario &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                  <input style="width: 200px" type="text" name="id_usuario" th:field="*{id_usuario}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <label for="id_grupo_familiar">Id Grupo Familiar &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                  <input style="width: 200px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <label for="observaciones">Observaciones &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                  <input style="width: 200px" type="text" name="observaciones" th:field="*{observaciones}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <label for="FechaFinalizacion">Fecha Finalizacion &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                  <input style="width: 200px" type="date" name="fecha_finalizacion" th:field="*{fecha_finalizacion}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <label for="HoraFinalizacion">Hora Finalizacion &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp:</label>
+                  <input style="width: 200px" type="time" name="hora_finalizacion" th:field="*{hora_finalizacion}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <label for="Finalizado">Finalizado &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+                  <input style="width: 200px" type="text" name="finalizado" th:field="*{finalizado}"  minlength="4" maxlength="15"/>
+                  <br>
+                  <input type="submit" name="guardarTarea" value="guardar"/>
+                  <br>
+                  <br>
+                </form>
+
+            </table>
         </center>
 
       </div>

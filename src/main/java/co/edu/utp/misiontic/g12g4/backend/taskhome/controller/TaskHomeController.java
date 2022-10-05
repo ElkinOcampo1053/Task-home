@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.RegistroTareas;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.Usuarios;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.service.RegistroTareasService;
+
+import co.edu.utp.misiontic.g12g4.backend.taskhome.service.UsuariosService;
 import lombok.AllArgsConstructor;
 
 // Spring MVC
@@ -45,12 +48,20 @@ public class TaskHomeController {
 
     @Autowired
     private RegistroTareasService registroTareasService;
-
+    
+    @Autowired
+    private UsuariosService usuariosService;
+   
     @GetMapping("/principal")
     public String principal(Model model){
         var registroTareas = registroTareasService.ListarRegistroTareas();
         //log.info("Ejecutando el controlador Spring MVC");
         model.addAttribute("RegistroTareas", registroTareas);
+
+        var usuarios = usuariosService.ListarUsuarios();
+        //log.info("Ejecutando el controlador Spring MVC");
+        model.addAttribute("Usuarios", usuarios);
+
         return "principal";
     }
     
@@ -78,5 +89,32 @@ public class TaskHomeController {
         registroTareasService.eliminar(registroTareas);
         return "redirect:/principal";
     }
+    //////////////////////////////////////////////////////////////////////////////////////
+    /*Datos de los Usuarios*/
+    //////////////////////////////////////////////////////////////////////////////////////
+    /*Path de Agregar*/
+    @GetMapping("/agregarUsuario")
+    public String agregar(Usuarios usuarios){
+        return "modificarUsuario";
+    }
 
+    @PostMapping("/guardarUsuario")
+    public String guardar(Usuarios usuarios){
+        usuariosService.guardar(usuarios);
+        return "redirect:/principal";
+    }
+
+    @GetMapping("/modificarUsuario/{id}")
+    public String editar(Usuarios usuarios, Model model){
+        usuarios = usuariosService.encontrarUsuarios(usuarios);
+        model.addAttribute("usuarios", usuarios);
+        return "modificarUsuario";
+    }
+
+    @GetMapping("/eliminarUsuario/{id}")
+    public String eliminar(Usuarios usuarios){
+        usuariosService.eliminar(usuarios);
+        return "redirect:/principal";
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////
 }

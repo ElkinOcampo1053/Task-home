@@ -14,24 +14,6 @@ public class TaskHomeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TaskHomeApplication.class, args);
-	}
-
-	@Component
-	@Data
-	@AllArgsConstructor
-	public static class DataLoader implements CommandLineRunner {
- 
-		private final EmailRepository userRepository;
-
-		@Override
-		public void run(String... args) throws Exception {
-			// loadUsers();
-		}
-
-		//private void loadUsers() {
-		//	userRepository.save(new User("admin", "admin", "admin123", "prueba1@gmail.com","1993-06-04", "1", "1", "30", true,
-		//			1));
-		//}
 
 	}
 

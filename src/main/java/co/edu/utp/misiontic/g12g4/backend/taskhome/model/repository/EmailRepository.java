@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.User;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.Usuarios;
 
-public interface EmailRepository extends JpaRepository<User, String> {
-    Optional<User> findByEmailAndPasswordAndActiveIsTrue(String email, String password);
-
-    Optional<User> findByEmail(String email);
+public interface EmailRepository extends JpaRepository<Usuarios, String> {
+    Optional<Usuarios> findByEmailAndPasswordAndEstadoIsTrue(String email, String password);
+    
+    Optional<Usuarios> findByEmail(String email);
 }

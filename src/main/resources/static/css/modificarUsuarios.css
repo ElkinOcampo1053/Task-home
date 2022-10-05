@@ -1,0 +1,41 @@
+.button {
+    background-color: #ffffff; /* Green */
+    border-radius: 200px 200px; /* nivel de redondeo (puedes poner cuatro valores, uno para cada esquina)*/
+    color: rgb(0, 0, 0);
+    padding: 8px 62px;
+    text-align: center;
+    text-decoration:solid;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button.ghost {
+    background-color: transparent white;
+    border-color: #13505B;
+  }
+
+  input {
+    background-color: #FAFAFA;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 20%;
+    border-radius:10px;
+  }
+  
+select {
+    background-color: #FAFAFA;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 20%;
+    border-radius:10px;
+  }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.RegistroRequest;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.RegistroResponse;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.User;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.Usuarios;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.model.repository.RegistroRepository;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.service.RegistroService;
 import lombok.AllArgsConstructor;
@@ -27,8 +27,7 @@ public class RegistroServiceImpl implements RegistroService{
       var correo = registroOp.get();
        return RegistroResponse.builder()
                .email(correo.getEmail())        
-               .username(correo.getNombreusuario())
-               .name(correo.getLoginusuario())
+               .username(correo.getNombre_usuario())
                .build();
    }
 
@@ -41,8 +40,7 @@ public class RegistroServiceImpl implements RegistroService{
 
         var Email = EmailOp.get();
         return RegistroResponse.builder()
-                .username(Email.getNombreusuario())
-                .name(Email.getLoginusuario())
+                .username(Email.getNombre_usuario())
                 .email(Email.getEmail())
                 .build();
     }
@@ -60,12 +58,11 @@ public class RegistroServiceImpl implements RegistroService{
             throw new RuntimeException("Ya existe un usuario registrado con ese correo electrónico");
         }
 
-        var emailDb = new User();
-        emailDb.setNombreusuario(email.getUsername());
+        var emailDb = new Usuarios();
+        emailDb.setNombre_usuario(email.getUsername());
         emailDb.setPassword(email.getPassword());
-        emailDb.setLoginusuario(email.getName());
         emailDb.setEmail(email.getEmail());
-        emailDb.setActive(true);
+        emailDb.setEstado(true);
         emailDb = registroRepository.save(emailDb);
 
     }
@@ -78,8 +75,7 @@ public class RegistroServiceImpl implements RegistroService{
         }
 
         var emailDb = EmailOp.get();
-        emailDb.setNombreusuario(Email.getUsername());
-        emailDb.setLoginusuario(Email.getName());
+        emailDb.setNombre_usuario(Email.getUsername());
         emailDb.setEmail(Email.getEmail());
         emailDb = registroRepository.save(emailDb);
     }
@@ -102,7 +98,7 @@ public class RegistroServiceImpl implements RegistroService{
         }
 
         var Email = emailOp.get();
-        Email.setActive(true);
+        Email.setEstado(true);
         registroRepository.save(Email);
     }
 
@@ -114,7 +110,7 @@ public class RegistroServiceImpl implements RegistroService{
         }
 
         var Email = emailOp.get();
-        Email.setActive(false);
+        Email.setEstado(true);
         registroRepository.save(Email);
 
     }

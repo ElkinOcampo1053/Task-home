@@ -8,7 +8,6 @@
   <title>TASKHOME</title>
   <link rel="stylesheet" href="../css/principal.css">
   <link rel="stylesheet" href="../css/calendar.css">
-  
 </head>
 
 <body>
@@ -64,9 +63,10 @@
           </a>
         </li>
       </ul>
+      
     </div>
 
-    <div class="main">
+      <div class="main">
       <div class="topbar">
         <div class="toggle">
           <ion-icon name="menu-outline"></ion-icon>
@@ -176,16 +176,19 @@
         </div>
       </div>-->
 
-      <div th:if="${RegistroTareas != null and !RegistroTareas.empty}" id="tablaTareas">
-          <div class="details" style="display:block " id="ListTareas">
+      <div th:if="${RegistroTareas != null and !RegistroTareas.empty}" id="tablaTareas" style="width: 100%;">
+          <div class="details" style="display:none " id="ListTareas">
             <div class="recentOrders">
               <div class="cardHeader">
                 <h2>Todas las Tareas</h2>
-                <a href="#" class="btn">Vistas</a>
               </div>
               <table>
                 <thead>
                   <tr>
+                    <Center>
+                    <!--Agregar-->
+                    <a class="btn" th:href="@{/agregarTarea}" style="height: 80px; background-color: green; width: 8%">Crear Nueva Tarea</a>
+                    </Center>
                   </tr>
                   <tr>
                     <td>Id</td>
@@ -193,30 +196,26 @@
                     <td>Hora Estimada</td>
                     <td>Observaciones</td>
                     <td>Estado</td>
-                    <td align="right">Crear</td>
-                    <td align="right">Modificar</td>
-                    <td align="right">Eliminar</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                   </tr>
                 </thead>
                 <tbody>   
 
                  <tr th:each="RegistroTarea : ${RegistroTareas}">
-                    <td th:text="${RegistroTarea.id}">Mostrar Id</td>
-                    <td th:text="${RegistroTarea.fecha_estimada_ejecucion}">Mostrar Fecha Estimada</td>
-                    <td th:text="${RegistroTarea.hora_estimada_ejecucion}">Mostrar Hora Estimada</td>
-                    <td th:text="${RegistroTarea.Observaciones}">Mostrar Id</td>
-                    <td th:text="${RegistroTarea.finalizado}">Mostrar Estado</td>
-                    <td align="right">
-                      <!--Agregar-->
-                      <a class="btn" th:href="@{/agregarTarea}" style="width: 150px; height: 50px; background-color: green;">Crear Tarea</a>
-                    </td>
+                    <td th:text="${RegistroTarea?.id}" style="width: 10%;">Mostrar Id</td>
+                    <td th:text="${RegistroTarea?.fecha_estimada_ejecucion}" style="width: 12%;">Mostrar Fecha Estimada</td>
+                    <td th:text="${RegistroTarea?.hora_estimada_ejecucion}" style="width: 10%;">Mostrar Hora Estimada</td>
+                    <td th:text="${RegistroTarea?.Observaciones}" style="width: 40%;">Mostrar Id</td>
+                    <td th:text="${RegistroTarea?.finalizado}" style="width: 10%;">Mostrar Estado</td>
                     <td align="right">
                       <!--Modificar-->
-                    <a class="btn" th:href="@{/modificarTarea/} + ${RegistroTarea.id} " style="width: 150px; height: 50px;">Modificar Tarea</a>
+                      <a class="btn" th:href="@{/modificarTarea/} + ${RegistroTarea.id} " style="height: 80px; width: 8%">Modificar</a>
                     </td>
                     <td align="right">
                       <!--Eliminar-->
-                    <a class="btn" th:href="@{/eliminarTarea/} + ${RegistroTarea.id}" style="width: 150px; height: 50px; background-color:brown;">Eliminar Tarea</a>
+                      <a class="btn" th:href="@{/eliminarTarea/} + ${RegistroTarea.id}" style="height: 80px; background-color:brown; width: 8%">Eliminar</a>
                     </td>
                   </tr>
                   
@@ -226,61 +225,55 @@
           </div>
       </div>
 
-      <div id="tablaGrupoFamiliar">
-        <div class="details" style="display:none" id="ListGrupoFamiliar">
-          <div class="recentOrders">
-            <div class="cardHeader">
-              <h2>Grupo Familiar</h2>
-              <a href="#" class="btn">Vistas</a>
-            </div>
-            <table>
-              <thead>
-                <tr>
-                  <center>
+      <div th:if="${Usuarios != null and !Usuarios.empty}" id="tablaGrupoFamiliar" style="width: 100%;">
+        <div class="details" style="display:block " id="ListGrupoFamiliar">
+            <div class="recentOrders">
+              <div class="cardHeader">
+                <h2 >Usuarios</h2>
+              </div>
+              
+              <table>
+                <thead>
+                  <Center>
                   <!--Agregar-->
-                  <a class="btn" th:href="@{/agregarUsuario}" style="width: 250px; height: 50px; background-color: green;">Crear Usuario</a>
-                  <!--Modificar-->
-                  <a class="btn" th:href="@{/modificarUsuario}" style="width: 250px; height: 50px;">Modificar Usuario</a>
-                  <!--Eliminar-->
-                  <a class="btn" th:href="@{/eliminarUsuario}" style="width: 250px; height: 50px; background-color:brown;">Eliminar Usuario</a>
-                  </center>
-                </tr>
-                <tr>
-                  <td>Nombre</td>
-                   <td>Cumpleaños</td>
-                  <td>Estado</td>
-                </tr>
-              </thead>
-              <tbody>
-               <tr>
-                  <td>Luis Enrique Perez</td>
-                  <td>45</td>
-                  <td><span class="status delivered">Habilitado</span></td>
-                </tr>
-                <tr>
-                  <td>Lina Maria Ruiz</td>
-                  <td>40</td>
-                  <td><span class="status delivered">Habilitado</span></td>
-                </tr>
-                <tr>
-                  <td>Luis Carlos Perez</td>
-                  <td>22</td>
-                  <td><span class="status delivered">Habilitado</span></td>
-                </tr>
-                <tr>
-                  <td>Julian Andres Perez</td>
-                  <td>28</td>
-                  <td><span class="status delivered">Deshabilitado</span></td>
-                </tr>
+                  <a class="btn" th:href="@{/agregarUsuario}" style=" background-color: green; width: 20%">Crear Usuario</a>
+                  </Center>
+                  <tr>
+                    <td>Id</td>
+                    <td>Nombre Usuario</td>
+                    <td>Correo Electronico</td>
+                    <td>Cumpleaños</td>
+                    <td>Estado</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody>   
+                    <tr th:each="Usuario : ${Usuarios}">
+                      <td th:text="${Usuario.id}" style="width: 10%;">Id</td>
+                      <td th:text="${Usuario?.nombre_usuario}" style="width: 32%;">Mostrar Nombre Usuario</td>
+                      <td th:text="${Usuario?.email}" style="width: 30%;">Mostrar Correo Electronico</td>
+                      <td th:text="${Usuario?.fecha_nacimiento}" style="width: 12%;">Mostrar Cumpleaños</t>
+                      <td th:text="${Usuario?.id_grupo_familiar}" style="display: none;">Mostrar Id Grupo Familiar</t>
+                      <td th:text="${Usuario?.id_rol_usuario}" style="display: none;">Mostrar Id Rol Grupo Familiar</t>
+                      <td th:text="${Usuario?.tiempo_disponibilidad}" style="display: none;">Mostrar Tiempo Disponibilidad</t>
+                      <td th:text="${Usuario?.estado}">Estado</t>
+                      <td align="right">
+                        <!--Modificar-->
+                        <a class="btn" th:href="@{/modificarUsuario/} + ${Usuario.id} " style="height: 80px; width: 8%">Modificar</a>
+                      </td>
+                      <td align="right">
+                        <!--Eliminar-->
+                        <a class="btn" th:href="@{/eliminarUsuario/} + ${Usuario.id}" style="height: 80px; background-color:brown; width: 8%">Eliminar</a>
+                      </td>
                 </tbody>
-            </table>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-
-      
     </div>
   </div>
+
   <script src="js/principal.js" charset="utf-8"></script>
   <script src="js/tareas.js" charset="utf-8"></script>
   <script src="js/GrupoFamiliar.js" charset="utf-8"></script>
