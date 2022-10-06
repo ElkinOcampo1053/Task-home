@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>[[#{login.titulo}]]</title>
   <link rel="shortcut icon" href="../images/TaskHome.ico" />
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/publicidad.css">
@@ -13,28 +13,31 @@
 </head>
 
 <body style="background-color:#b5ebf7;">
+  <!--div align="left" style="width: 90%;">
+    <header th:replace="layout/plantilla :: header"></header>
+  </div-->
+  
+
 <div class="container" id="container">
-  <h1>Crear Cuenta</h1>
+  <h1>[[#{login.crearcuenta}]]</h1>
   
   <div class="form-container sign-in-container">
     <form action="#">
-      <h1>Iniciar sesión</h1>
-      <h5>Favor ingrese la siguiente informacion para ingresar al sistema</h5>
+      <h1>[[#{login.iniciarsesion}]]</h1>
+      <h5>[[#{login.mensaje}]]</h5>
      <div class="form-floating text-dark">
-      <label for="floatingInput">Correo Electronico</label>
-      <input type="text" class="form-control" id="floatingInput" placeholder="Correo Electronico" minlength="4" maxlength="30">
+      <label for="floatingInput">[[#{login.correoelectronico}]]</label>
+      <input type="text" class="form-control" id="floatingInput"  minlength="4" maxlength="30">
     </div>
     <div class="form-floating text-dark">
-      <label for="floatingPassword">Password</label>
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="4" maxlength="8">
+      <label for="floatingPassword">[[#{login.contrasena}]]</label>
+      <input type="password" class="form-control" id="floatingPassword" minlength="4" maxlength="8">
     </div>
 
-      <a href="#">¿Olvidaste tu contraseña?</a>
+      <a href="#">¿[[#{login.olvidocontrasena}]]?</a>
 
-      <button class="ghost button border-white " type="button" onclick="login()">INGRESAR</button>
+      <button class="ghost button border-white " type="button" onclick="login()">[[#{login.iniciarsesion}]]</button>
 
-
-        
       <br>
       <div id="errorBox">
       </div>
@@ -44,15 +47,15 @@
   <div class="overlay-container">
     <div class="overlay">
       <div class="overlay-panel overlay-left">
-        <h1>Bienvenido Nuevamente</h1>
-        <p>Para mantenerse conectado con nosotros, inicie sesión con sus datos personales</p>
+        <h1>[[#{login.bienvenidonuevamente}]]</h1>
+        <p>[[#{login.mensajenuevamente}]]</p>
         <button class="ghost" id="signIn">Ingresar </button>
       </div>
       <div class="overlay-panel overlay-right">
-        <h1>¡Hola, Bienvenido!</h1>
-        <p>Ingrese sus datos personales para abrir una cuenta con nosotros</p>
+        <h1>¡[[#{login.bienvenida}]]!</h1>
+        <p>[[#{login.mensajecrearcuenta}]]</p>
         <b>
-          <a class="ghost button border-white " th:href="@{/agregarUsuarioAdmin}" id="signUp"  >CREAR CUENTA</a>
+          <a class="ghost button border-white " th:href="@{/agregarUsuarioAdmin}" id="signUp"  >[[#{login.crearcuenta}]]</a>
         </b>
       </div>
     </div>

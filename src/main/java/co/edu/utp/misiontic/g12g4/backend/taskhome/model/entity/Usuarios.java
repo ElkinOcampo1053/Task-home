@@ -3,6 +3,16 @@ package co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;*/
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import lombok.Data;
 
 @Data
@@ -16,6 +26,7 @@ public class Usuarios  implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
+
     private String nombre_usuario; // user_name
     
     private String password;

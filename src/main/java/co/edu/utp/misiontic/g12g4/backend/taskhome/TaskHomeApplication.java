@@ -14,7 +14,6 @@ public class TaskHomeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TaskHomeApplication.class, args);
-
 	}
 
 }
