@@ -1,103 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+                xmlns="htttp://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
-  <link rel="shortcut icon" href="../images/TaskHome.ico" />
-  <link rel="stylesheet" href="../css/registro.css">
-  <link rel="stylesheet" href="../css/publicidad.css">
+  <link rel="stylesheet" href="../css/principal.css">
+  <link rel="stylesheet" href="../css/calendar.css">
+  <link rel="stylesheet" href="../css/modificarUsuarios.css">
 </head>
 
-<body style="background-color:#b5ebf7;">
-<div class="container" id="container">
-  
-  <div class="form-container sign-up-container">
-    
-    <form action="#">
-      <h1 class="Logo">TASKHOME</h1>
-      <h1>Crear Cuenta</h1>
-    </form>
-  </div>
-  <div class="form-container sign-in-container">
-    <form action="#">
-      <h3>Crear cuenta</h3>
-      <h5>Favor a continuacion digite la siguiente informacion para crear su cuenta</h5>
-      <div class="form-floating text-dark">
-        <label for="floatingInput">Nombre Usuario</label>
-          <input type="text" class="form-control" id="floatingInput" placeholder="NombreUsuario" minlength="4" maxlength="20">      </div>
-      <div class="form-floating text-dark">
-        <label for="floatingInput">Correo Electronico</label>
-        <input type="text" class="form-control" id="floatingCorreo" placeholder="CorreoElectronico" minlength="4" maxlength="30">
-      </div>
-      <div class="form-floating text-dark">
-        <label for="floatingPassword">Contraseña</label>  
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" minlength="4" maxlength="8">
-      </div>
-      <div class="form-floating text-dark">
-        <label for="floatingPassword">Confirmar Contraseña</label>
-        <input type="password" class="form-control" id="floatingConfirmarPassword" placeholder="ConfirmarContraseña" minlength="4" maxlength="8">
-      </div>
+<body>
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="/index">
+            <span class="icon"><ion-icon name="home-outline" ></ion-icon></span>
+            <span class="title" >TASKºHOME</span>
+          </a>
+        </li>
+        <li>
+          <a id="boton1"  href="/login">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></ion-icon></span>
+            <span class="title">Inicio Sesion</span>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-    </form>      
-  </div>
-  <div class="overlay-container">
-    <div class="overlay">
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+        <div class="Usuario">
+          <img src="images/user.jpg">
+        </div>
+      </div>
       
-      <div class="overlay-panel overlay-right">
-        <h3>Informacion Adicional</h3>
-        <h5>Esta informacion no es obligatoria</h5>
-
-        <div class="form-floating text-dark">
-          <label for="floatingPassword">Fecha de Nacimiento</label>
-          <input type="date" class="form-control" id="floatingFechaNacimiento" placeholder="FechaNacimiento">
-        </div>
-
-        <div class="form-floating text-dark">
-          <label for="floatingCiudad">Ciudad</label>
-          <input type="text" class="form-control" id="floatingCiudad" placeholder="Ciudad" minlength="4" maxlength="15">
-        </div>
-
-        <div class="form-floating text-dark">
-          <label for="floatingCiudad">Pais</label>
-          <input type="text" class="form-control" id="floatingPaisCiudad" placeholder="Pais" minlength="4" maxlength="15">
-        </div>
+      <center>
         
-        <br>
-        <button class="ghost button border-white " type="button" onclick="registro()">CREAR CUENTA</button>
-        <br>
-        <a class="ghost button border-white " type="button" href="/login">ATRAS</a>
-
-        <h5 id="errorBox">
-        </h5>
-
-      </div>
+        <div style="background-color:lightgray; width: 60%; border-radius: 3%;">
+          <br>
+          <h2>Administracion de Usuarios</h2>
+          <br>
+          <form th:action="@{/guardarUsuarioAdmin}" method="post" th:object="${usuarios}" >
+              <input type="hidden" name="id" th:field="*{id}"> 
+              <label style="width: 300px" for="nombre_usuario">Nombre Usuario &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+              <input style="width: 300px" class="form-floating text-dark" type="text" name="nombre_usuario" th:field="*{nombre_usuario}"  minlength="4" maxlength="15"/>
+              <br>
+              <label style="width: 300px" for="email">Correo Electronico &nbsp &nbsp &nbsp :</label>
+              <input style="width: 300px" type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49"/>
+              <br>
+              <label style="width: 300px" for="password">Contraseña &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp :</label>
+              <input style="width: 300px" type="password" name="password" th:field="*{password}"  minlength="4" maxlength="15"/>
+              <br>
+              <label for="fecha_nacimiento">Fecha de Nacimiento &nbsp :</label>
+              <input style="width: 300px" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"  minlength="4" maxlength="15"/>
+              <br>
+              <label for="id_grupo_familiar">Id Grupo &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+              <input style="width: 300px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
+              <br>
+              <label  for="id_rol_usuario">Rol &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+              <select disabled="disabled" style="width: 300px" name="select" th:field="*{id_rol_usuario}" minlength="1" maxlength="15" >
+                <option th:value="'1'" >Administrador</option>
+                <option th:value="'2'" selected>Usuario</option>
+              </select>
+              <br>
+              <label for="tiempo_disponibilidad">Tiempo Disp. (Min) &nbsp &nbsp &nbsp &nbsp :</label>
+              <input style="width: 300px" type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}"  minlength="1" maxlength="15"/>
+              <br>
+              <label  for="estado">Estado &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
+              <select style="width: 300px" name="select" th:field="*{estado}" minlength="1" maxlength="15">
+                <option th:value="'1'" selected>Activo</option>
+                <option th:value="'0'" >Inactivo</option>
+              </select>
+              <br>
+              <input type="submit" name="guardarUsuarioAdmin" value="guardarUsuarioAdmin"/>
+              <br>
+              <br>
+          </form>
+        </table>
+      </center>
     </div>
   </div>
-</div>
-
-<div>
-  <br>
-</div>
-<div id="hellobar-bar" class="regular closable">
-  <div class="hb-content-wrapper">
-      <div class="hb-text-wrapper">
-          <div class="hb-headline-text">
-              <p><span>Espacio para publicidad, servicio gratuito</span></p>
-          </div>
-      </div>
-      <a  target="_blank" class="hb-cta hb-cta-button">
-          <div class="hb-text-holder">
-              <p>Premium</p>
-          </div>
-      </a>
-  </div>
-</div>
-
-<script src="js/registro.js"></script>
-<script src="js/script.js" charset="utf-8"></script>
-
+  <script src="js/principal.js" charset="utf-8"></script>
+  <script src="js/tareas.js" charset="utf-8"></script>
+  <script src="js/GrupoFamiliar.js" charset="utf-8"></script>
+  <script src="js/scriptindex.js" charset="utf-8"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  
 </body>
 </html>

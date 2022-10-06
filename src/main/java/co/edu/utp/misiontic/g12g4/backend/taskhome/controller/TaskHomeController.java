@@ -116,5 +116,19 @@ public class TaskHomeController {
         usuariosService.eliminar(usuarios);
         return "redirect:/principal";
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Crear Usuario Admin
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @GetMapping("/agregarUsuarioAdmin")
+    public String agregarAdmin(Usuarios usuarios){
+        return "registro";
+    }
+
+    @PostMapping("/guardarUsuarioAdmin")
+    public String guardarAdmin(Usuarios usuarios){
+        usuariosService.guardar(usuarios);
+        return "redirect:/login";
+    }
     ////////////////////////////////////////////////////////////////////////////////////////
 }

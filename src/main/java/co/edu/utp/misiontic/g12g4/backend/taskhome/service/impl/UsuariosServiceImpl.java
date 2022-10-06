@@ -27,6 +27,12 @@ public class UsuariosServiceImpl implements UsuariosService{
     public void guardar(Usuarios usuarios) {
         iUsuariosDao.save(usuarios);
     }
+    
+    @Override
+    @Transactional
+    public void guardarAdmin(Usuarios usuarios) {
+        iUsuariosDao.save(usuarios);
+    }
 
     @Override
     public void eliminar(Usuarios usuarios) {

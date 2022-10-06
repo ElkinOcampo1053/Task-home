@@ -22,7 +22,7 @@
       </form>
     </div>
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form th:action="@{/guardarUsuario}" method="post" th:object="${usuarios}" action="#">
         <div>
           <h3>Modificar Contraseña<h3></h3>
         </div>
@@ -30,6 +30,14 @@
           <label>Favor a continuacion digite la siguiente informacion para modificar su cuenta</label>
         </div>
         <br>
+        
+        <input type="hidden" name="id" th:field="*{id}"> 
+
+        <!--div class="form-floating text-dark">
+          <label for="floatingInput">Nombre Usuario</label>
+          <input type="text" class="form-control" id="floatingInput" placeholder="NombreUsuario" th:field="*{nombre_usuario}" minlength="4" maxlength="20" disabled=»disabled»>
+        </div-->
+
         <div class="form-floating text-dark">
           <label for="floatingInput">Correo Electronico</label>
           <input type="text" class="form-control" id="floatingInput" placeholder="CorreoElectronico" minlength="4" maxlength="20" disabled=»disabled»>
@@ -63,7 +71,7 @@
             <input type="date" class="form-control" id="floatingFechaNacimiento" placeholder="FechaNacimiento">
           </div>
 
-          <div class="form-floating text-dark">
+          <!--div class="form-floating text-dark">
             <label for="floatingCiudad">Ciudad</label>
             <input type="text" class="form-control" id="floatingCiudad" placeholder="Ciudad" minlength="4" maxlength="15">
           </div>
@@ -71,7 +79,7 @@
           <div class="form-floating text-dark">
             <label for="floatingCiudad">Pais</label>
             <input type="text" class="form-control" id="floatingPaisCiudad" placeholder="Pais" minlength="4" maxlength="15">
-          </div>
+          </div-->
           
           <br>
           <button class="ghost button border-white " type="button" onclick="registro()">MODIFICAR INFORMACION ADICIONAL</button>

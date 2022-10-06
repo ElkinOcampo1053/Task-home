@@ -11,6 +11,8 @@ public interface UsuariosService {
     
     public void guardar(Usuarios usuarios);
 
+    public void guardarAdmin(Usuarios usuarios);
+
     public void eliminar(Usuarios usuarios);
 
     public Usuarios encontrarUsuarios(Usuarios usuarios);  
