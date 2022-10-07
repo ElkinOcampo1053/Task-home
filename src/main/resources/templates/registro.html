@@ -55,7 +55,7 @@
                     <label style="width: 300px" for="email">[[#{registro.correo}]]</label>
                   </td>
                   <td>
-                    <input style="width: 300px" type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49"/>
+                    <input style="width: 300px" type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49" />
                   </td>
                 </tr>
                 <tr>
@@ -71,7 +71,7 @@
                     <label for="fecha_nacimiento">[[#{registro.fechanacimiento}]]</label>
                   </td>
                   <td>
-                    <input style="width: 300px" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"  minlength="4" maxlength="15"/>
+                    <input style="width: 300px" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"   min="1920-01-01" max="2200-01-01"/>
                   </td>
                 </tr>
                 <tr>
@@ -82,14 +82,14 @@
                     <input style="width: 300px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
                   </td>
                 </tr>
-                <tr>
+                <tr hidden>
                   <td align="right">
                     <label  for="id_rol_usuario">[[#{registro.rol}]]</label>
                   </td>
                   <td>
-                    <select disabled="disabled" style="width: 300px" name="select" th:field="*{id_rol_usuario}" minlength="1" maxlength="15" >
+                    <select style="width: 300px" name="select" th:field="*{id_rol_usuario}" minlength="1" maxlength="15" >
                       <option th:value="'1'" >[[#{registro.administrador}]]</option>
-                      <option th:value="'2'" selected>[[#{registro.usuario}]]</option>
+                      <option th:value="'0'" selected>[[#{registro.usuario}]]</option>
                     </select>
                   </td>
                 </tr>
