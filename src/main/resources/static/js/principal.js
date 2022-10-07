@@ -1,3 +1,11 @@
+function enviar_correo()
+{
+  document.getElementById('bnombreusuario').innerHTML = localStorage.getItem('correo') ;
+
+  postToEmail(body);
+}
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // Calendario
 ////////////////////////////////////////////////////////////////////////////////////////////////////7
@@ -180,3 +188,4 @@ function visualizarVentanaEmergente(){
     document.getElementById('window-notice').style.display = 'block';
   }
 }
+

@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="../css/calendar.css">
 </head>
 
-<body>
+<body onload="enviar_correo()">
+  <span hidden id="mesI">[[#{principal.calidioma}]]</span>
+
   <div class="container">
     <div class="navigation">
       <ul>
@@ -66,16 +68,24 @@
       
     </div>
 
+    
+
       <div class="main">
       <div class="topbar">
         <div class="toggle">
           <ion-icon name="menu-outline"></ion-icon>
         </div>
+        
         <!--div class="user">
           <img src="images/user.jpg">
         </div-->
       </div>
-
+      <center>
+        <h5>
+          <h5>[[#{loginjs.bienvenido}]]</h5> 
+          <span id="bnombreusuario" class="NombreUsuario">Bienvenido</span>
+        </h5>
+      <center>
       <!--div class="cardBox">
         <div class="card">
           <div>

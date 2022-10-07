@@ -7,6 +7,8 @@ const login = () => {
     var correoincorrecto =  document.getElementById("emailincorrecto").innerText ;
     var passwordincorrecto =  document.getElementById("passwordincorrecto").innerText ;
 
+    localStorage.setItem('correo', email);
+
     if (email == "") {
         ErrorInformacion =true;
         Mensaje = Mensaje +  correoincorrecto + " \n";
