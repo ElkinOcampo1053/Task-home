@@ -41,7 +41,7 @@
         
         <center>
           
-          <div style="background-color:lightgray; width: 60%; border-radius: 3%;">
+          <div style="background-color:lightgray; width: 90%; border-radius: 3%;">
             <br>
             <h2>[[#{registro.mensaje}]]</h2>
             <br>
@@ -87,7 +87,7 @@
                       <label for="id_grupo_familiar">[[#{registro.idgrupo}]]</label>
                     </td>
                     <td>
-                      <input style="width: 100%" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="1" maxlength="15"/>
+                      <input style="width: 100%" type="number" name="id_grupo_familiar" th:field="*{id_grupo_familiar}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="1" maxlength="15"/>
                     </td>
                   </tr>
                   <tr hidden="hidden" >
@@ -106,7 +106,7 @@
                       <label for="tiempo_disponibilidad">[[#{registro.tiempo}]]</label>
                     </td>
                     <td>
-                      <input style="width: 100%" type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="1" maxlength="15"/>
+                      <input style="width: 100%" type="number" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="1" maxlength="15"/>
                     </td>
                   </tr>
                   <tr>
