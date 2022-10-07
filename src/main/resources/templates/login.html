@@ -28,6 +28,11 @@
      <div class="form-floating text-dark">
       <label for="floatingInput">[[#{login.correoelectronico}]]</label>
       <input type="text" class="form-control" id="floatingInput"  minlength="4" maxlength="30">
+      <span hidden id="emailincorrecto">[[#{loginjs.correoincorrecto}]]</span>
+      <span hidden id="passwordincorrecto">[[#{loginjs.contrasenaincorrecta}]]</span>
+      <span hidden id="menbienvenido">[[#{loginjs.bienvenido}]]</span>
+      <span hidden id="mencredencialincorrecta">[[#{loginjs.credencialinvalida}]]</span>
+
     </div>
     <div class="form-floating text-dark">
       <label for="floatingPassword">[[#{login.contrasena}]]</label>
@@ -49,7 +54,7 @@
       <div class="overlay-panel overlay-left">
         <h1>[[#{login.bienvenidonuevamente}]]</h1>
         <p>[[#{login.mensajenuevamente}]]</p>
-        <button class="ghost" id="signIn">Ingresar </button>
+        <button class="ghost button border-white" id="signIn">[[#{login.ingresar}]]</button>
       </div>
       <div class="overlay-panel overlay-right">
         <h1>¡[[#{login.bienvenida}]]!</h1>
@@ -68,12 +73,12 @@
   <div class="hb-content-wrapper">
       <div class="hb-text-wrapper">
           <div class="hb-headline-text">
-              <p><span>Espacio para publicidad, servicio gratuito</span></p>
+              <p><span>[[#{login.espaciopublicitario1}]]</span></p>
           </div>
       </div>
       <a  target="_blank" class="hb-cta hb-cta-button">
           <div class="hb-text-holder">
-              <p>Premium</p>
+              <p>[[#{login.espaciopublicitario2}]]</p>
           </div>
       </a>
   </div>

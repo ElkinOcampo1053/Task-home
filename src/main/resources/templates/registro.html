@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="../css/modificarUsuarios.css">
 </head>
 
-<header th:replace="layout/plantilla :: header"></header>
-
 <body>
   <div class="container">
     <div class="navigation">
@@ -27,61 +25,97 @@
         <li>
           <a id="boton1"  href="/login">
             <span class="icon"><ion-icon name="home-outline"></ion-icon></ion-icon></span>
-            <span class="title">Inicio Sesion</span>
+            <span class="title">[[#{registro.volver}]]</span>
           </a>
         </li>
       </ul>
     </div>
 
     <div class="main">
-      <div class="topbar">
-        <div class="toggle">
-          <ion-icon name="menu-outline"></ion-icon>
-        </div>
-        <div class="Usuario">
-          <img src="images/user.jpg">
-        </div>
-      </div>
       
       <center>
         
         <div style="background-color:lightgray; width: 60%; border-radius: 3%;">
           <br>
-          <h2>Administracion de Usuarios</h2>
+          <h2>[[#{registro.mensaje}]]</h2>
           <br>
           <form th:action="@{/guardarUsuarioAdmin}" method="post" th:object="${usuarios}" >
-              <input type="hidden" name="id" th:field="*{id}"> 
-              <label style="width: 300px" for="nombre_usuario">Nombre Usuario &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-              <input style="width: 300px" class="form-floating text-dark" type="text" name="nombre_usuario" th:field="*{nombre_usuario}"  minlength="4" maxlength="15"/>
-              <br>
-              <label style="width: 300px" for="email">Correo Electronico &nbsp &nbsp &nbsp :</label>
-              <input style="width: 300px" type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49"/>
-              <br>
-              <label style="width: 300px" for="password">Contraseña &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp :</label>
-              <input style="width: 300px" type="password" name="password" th:field="*{password}"  minlength="4" maxlength="15"/>
-              <br>
-              <label for="fecha_nacimiento">Fecha de Nacimiento &nbsp :</label>
-              <input style="width: 300px" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"  minlength="4" maxlength="15"/>
-              <br>
-              <label for="id_grupo_familiar">Id Grupo &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-              <input style="width: 300px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
-              <br>
-              <label  for="id_rol_usuario">Rol &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-              <select disabled="disabled" style="width: 300px" name="select" th:field="*{id_rol_usuario}" minlength="1" maxlength="15" >
-                <option th:value="'1'" >Administrador</option>
-                <option th:value="'2'" selected>Usuario</option>
-              </select>
-              <br>
-              <label for="tiempo_disponibilidad">Tiempo Disp. (Min) &nbsp &nbsp &nbsp &nbsp :</label>
-              <input style="width: 300px" type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}"  minlength="1" maxlength="15"/>
-              <br>
-              <label  for="estado">Estado &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-              <select style="width: 300px" name="select" th:field="*{estado}" minlength="1" maxlength="15">
-                <option th:value="'1'" selected>Activo</option>
-                <option th:value="'0'" >Inactivo</option>
-              </select>
-              <br>
-              <input type="submit" name="guardarUsuarioAdmin" value="guardarUsuarioAdmin"/>
+              <input type="hidden" name="id" th:field="*{id}">   
+              <table>
+                <tr>
+                  <td align="right">
+                    <label style="width: 300px" for="nombre_usuario" >[[#{registro.nombre}]]</label>
+                  </td>
+                  <td>
+                    <input style="width: 300px" class="form-floating text-dark" type="text" name="nombre_usuario" th:field="*{nombre_usuario}"  minlength="4" maxlength="15"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <label style="width: 300px" for="email">[[#{registro.correo}]]</label>
+                  </td>
+                  <td>
+                    <input style="width: 300px" type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right"> 
+                    <label style="width: 300px" for="password">[[#{registro.contrasena}]]</label>
+                  </td>
+                  <td>
+                    <input style="width: 300px" type="password" name="password" th:field="*{password}"  minlength="4" maxlength="15"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <label for="fecha_nacimiento">[[#{registro.fechanacimiento}]]</label>
+                  </td>
+                  <td>
+                    <input style="width: 300px" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"  minlength="4" maxlength="15"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <label for="id_grupo_familiar">[[#{registro.idgrupo}]]</label>
+                  </td>
+                  <td>
+                    <input style="width: 300px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <label  for="id_rol_usuario">[[#{registro.rol}]]</label>
+                  </td>
+                  <td>
+                    <select disabled="disabled" style="width: 300px" name="select" th:field="*{id_rol_usuario}" minlength="1" maxlength="15" >
+                      <option th:value="'1'" >[[#{registro.administrador}]]</option>
+                      <option th:value="'2'" selected>[[#{registro.usuario}]]</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <label for="tiempo_disponibilidad">[[#{registro.tiempo}]]</label>
+                  </td>
+                  <td>
+                    <input style="width: 300px" type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}"  minlength="1" maxlength="15"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    <label  for="estado">[[#{registro.estado}]]</label>
+                  </td>
+                  <td>
+                    <select style="width: 300px" name="select" th:field="*{estado}" minlength="1" maxlength="15">
+                      <option th:value="'1'" selected>[[#{registro.activo}]]</option>
+                      <option th:value="'0'" >[[#{registro.inactivo}]]</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+
+              <input type="submit" name="guardarUsuarioAdmin" value="Guardar"/>
+
               <br>
               <br>
           </form>
@@ -90,8 +124,6 @@
     </div>
   </div>
 
-  <footer th:replace="layout/plantilla :: footer"></footer>
-  
   <script src="js/principal.js" charset="utf-8"></script>
   <script src="js/tareas.js" charset="utf-8"></script>
   <script src="js/GrupoFamiliar.js" charset="utf-8"></script>

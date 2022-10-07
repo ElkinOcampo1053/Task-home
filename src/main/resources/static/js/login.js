@@ -4,10 +4,12 @@ const login = () => {
 
     const email = document.getElementById("floatingInput").value;
     const password = document.getElementById("floatingPassword").value;
+    var correoincorrecto =  document.getElementById("emailincorrecto").innerText ;
+    var passwordincorrecto =  document.getElementById("passwordincorrecto").innerText ;
 
     if (email == "") {
         ErrorInformacion =true;
-        Mensaje = Mensaje +  "El CORREO ELECTRONICO es requerido \n";
+        Mensaje = Mensaje +  correoincorrecto + " \n";
     }
     if (password == "") {
         if (ErrorInformacion)
@@ -15,7 +17,7 @@ const login = () => {
             Mensaje = Mensaje + ", "
         }
         ErrorInformacion =true;
-        Mensaje = Mensaje + "La CONTRASEÑA es requerida \n";
+        Mensaje = Mensaje + passwordincorrecto + " \n";
     }
 
     if (ErrorInformacion== true)
@@ -34,6 +36,10 @@ const login = () => {
 };
 
 const postToEmail = async (bodyObject) => {
+
+    var menbienvenido =  document.getElementById("menbienvenido").innerText ;
+    var mencredencialinvalida =  document.getElementById("mencredencialincorrecta").innerText ;
+
     const url = "/api/login";
     const response = await fetch(url, {
         method: "POST",
@@ -48,14 +54,14 @@ const postToEmail = async (bodyObject) => {
         
         localStorage.setItem("loggedUser", JSON.stringify(email));
         
-        alert("Bienvenido "+ email.email + " !", "success");
+        alert(menbienvenido + " " + email.email + " !", "success");
         
         await new Promise(r => setTimeout(r, 2000));
 
         window.location.href = "/principal";
     } else {
-        const message = await response.text();
-        showError(message);
+        //const message = await response.text();
+        showError(mencredencialinvalida);
     }
 };
 
