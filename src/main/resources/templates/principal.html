@@ -23,19 +23,19 @@
         <li>
           <a id="boton4"  onclick="visualizarTareas()">
             <span class="icon"><ion-icon name="book-outline"></ion-icon></ion-icon></span>
-            <span class="title">Tareas</span>
+            <span class="title">[[#{principal.tareas}]]</span>
           </a>
         </li>
         <li>
           <a id="boton5"  onclick="visualizarGrupoFamiliar()">
             <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-            <span class="title">Grupo</span>
+            <span class="title">[[#{principal.grupo}]]</span>
           </a>
         </li>
         <li>
           <a id="boton3"  onclick="visualizarCalendario()">
             <span class="icon"><ion-icon name="calendar-outline"></ion-icon></ion-icon></span>
-            <span class="title">Calendario</span>
+            <span class="title">[[#{principal.calendario}]]</span>
 
         </li>
         <!--li>
@@ -59,7 +59,7 @@
         <li>
           <a class="ghost button fw-bold border-white " href="/login">
             <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-            <span class="title">Cerrar Sesion</span>
+            <span class="title">[[#{principal.cerrars}]]</span>
           </a>
         </li>
       </ul>
@@ -116,12 +116,12 @@
         <div class="contianer" id="Calendario" style="display:none">
           <div class="calendar">
             <div class="calendar-header">
-              <span class="month-picker" id="month-picker"> May </span>
+              <span class="month-picker" id="month-picker"> [[#{principal.calene}]] </span>
               <div class="year-picker" id="year-picker">
                 <span class="year-change" id="pre-year">
                   <pre><</pre>
                 </span>
-                <span id="year">2020 </span>
+                <span id="year">2020</span>
                 <span class="year-change" id="next-year">
                   <pre>></pre>
                 </span>
@@ -130,13 +130,13 @@
       
             <div class="calendar-body">
               <div class="calendar-week-days">
-                <div>Dom</div>
-                <div>Lun</div>
-                <div>Mar</div>
-                <div>Mie</div>
-                <div>Jue</div>
-                <div>Vie</div>
-                <div>Sab</div>
+                <div>[[#{principal.caldom}]]</div>
+                <div>[[#{principal.callun}]]</div>
+                <div>[[#{principal.calmar}]]</div>
+                <div>[[#{principal.calmie}]]</div>
+                <div>[[#{principal.caljue}]]</div>
+                <div>[[#{principal.calvie}]]</div>
+                <div>[[#{principal.calsab}]]</div>
               </div>
               <div class="calendar-days">
               </div>
@@ -149,7 +149,7 @@
                 
                 <table style="width: 180%;">
                   <td>
-                    <div  style="width: 40%;" class="day-text-formate">Hoy</div>
+                    <div  style="width: 40%;" class="day-text-formate">[[#{principal.hoy}]]</div>
                   </td>
                   <td>
                     <div class="time-formate">02:51:20</div>
@@ -175,22 +175,22 @@
           <div class="details" style="display:block " id="ListTareas">
             <div class="recentOrders">
               <div class="cardHeader">
-                <h2>Todas las Tareas</h2>
+                <h2>[[#{principal.todastareas}]]</h2>
               </div>
               <table>
                 <thead>
                   <tr>
                     <Center>
                     <!--Agregar-->
-                    <a class="btn" th:href="@{/agregarTarea}" style="height: 80px; background-color: green; width: 8%">Crear Nueva Tarea</a>
+                    <a class="btn" th:href="@{/agregarTarea}" style="height: 80px; background-color: green; width: 8%">[[#{accion.crear}]]</a>
                     </Center>
                   </tr>
                   <tr>
                     <td>Id</td>
-                     <td>Fecha Estimada</td>
-                    <td>Hora Estimada</td>
-                    <td>Observaciones</td>
-                    <td>Estado</td>
+                     <td>[[#{principal.fechae}]]</td>
+                    <td>[[#{principal.horae}]]</td>
+                    <td>[[#{principal.detallea}]]</td>
+                    <td>[[#{principal.estadot}]]</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -206,11 +206,11 @@
                     <td th:text="${RegistroTarea?.finalizado}" style="width: 10%;">Mostrar Estado</td>
                     <td align="right">
                       <!--Modificar-->
-                      <a class="btn" th:href="@{/modificarTarea/} + ${RegistroTarea.id} " style="height: 80px; width: 8%">Modificar</a>
+                      <a class="btn" th:href="@{/modificarTarea/} + ${RegistroTarea.id} " style="height: 80px; width: 8%">[[#{accion.modificar}]]</a>
                     </td>
                     <td align="right">
                       <!--Eliminar-->
-                      <a class="btn" th:href="@{/eliminarTarea/} + ${RegistroTarea.id}" style="height: 80px; background-color:brown; width: 8%">Eliminar</a>
+                      <a class="btn" th:href="@{/eliminarTarea/} + ${RegistroTarea.id}" style="height: 80px; background-color:brown; width: 8%">[[#{accion.eliminar}]]</a>
                     </td>
                   </tr>
                   
@@ -224,21 +224,21 @@
         <div class="details" style="display:block " id="ListGrupoFamiliar">
             <div class="recentOrders">
               <div class="cardHeader">
-                <h2 >Usuarios</h2>
+                <h2 >[[#{principal.grupousu}]]</h2>
               </div>
               
               <table>
                 <thead>
                   <Center>
                   <!--Agregar-->
-                  <a class="btn" th:href="@{/agregarUsuario}" style=" background-color: green; width: 20%">Crear Usuario</a>
+                  <a class="btn" th:href="@{/agregarUsuario}" style=" background-color: green; width: 20%">[[#{accion.crear}]]</a>
                   </Center>
                   <tr>
                     <td>Id</td>
-                    <td>Nombre Usuario</td>
-                    <td>Correo Electronico</td>
-                    <td>Cumpleaños</td>
-                    <td>Estado</td>
+                    <td>[[#{principal.gruponombre}]]</td>
+                    <td>[[#{principal.grupocorreo}]]</td>
+                    <td>[[#{principal.grupofechanacimiento}]]</td>
+                    <td>[[#{principal.grupoestado}]]</td>
                     <td></td>
                     <td></td>
                   </tr>
@@ -248,18 +248,19 @@
                       <td th:text="${Usuario.id}" style="width: 10%;">Id</td>
                       <td th:text="${Usuario?.nombre_usuario}" style="width: 32%;">Mostrar Nombre Usuario</td>
                       <td th:text="${Usuario?.email}" style="width: 30%;">Mostrar Correo Electronico</td>
-                      <td th:text="${Usuario?.fecha_nacimiento}" style="width: 12%;">Mostrar Cumpleaños</t>
-                      <td th:text="${Usuario?.id_grupo_familiar}" style="display: none;">Mostrar Id Grupo Familiar</t>
-                      <td th:text="${Usuario?.id_rol_usuario}" style="display: none;">Mostrar Id Rol Grupo Familiar</t>
-                      <td th:text="${Usuario?.tiempo_disponibilidad}" style="display: none;">Mostrar Tiempo Disponibilidad</t>
-                      <td th:text="${Usuario?.estado}">Estado</t>
+                      <td th:text="${Usuario?.fecha_nacimiento}" style="width: 12%;">Mostrar Cumpleaños</td>
+                      <td th:text="${Usuario?.id_grupo_familiar}" style="display: none;">Mostrar Id Grupo Familiar</td>
+                      <td th:text="${Usuario?.id_rol_usuario}" style="display: none;">Mostrar Id Rol Grupo Familiar</td>
+                      <td th:text="${Usuario?.tiempo_disponibilidad}" style="display: none;">Mostrar Tiempo Disponibilidad</td>
+                      <td th:text="${Usuario?.estado}">Estado</td>
+
                       <td align="right">
                         <!--Modificar-->
-                        <a class="btn" th:href="@{/modificarUsuario/} + ${Usuario.id} " style="height: 80px; width: 8%">Modificar</a>
+                        <a class="btn" th:href="@{/modificarUsuario/} + ${Usuario.id} " style="height: 80px; width: 8%">[[#{accion.modificar}]]</a>
                       </td>
                       <td align="right">
                         <!--Eliminar-->
-                        <a class="btn" th:href="@{/eliminarUsuario/} + ${Usuario.id}" style="height: 80px; background-color:brown; width: 8%">Eliminar</a>
+                        <a class="btn" th:href="@{/eliminarUsuario/} + ${Usuario.id}" style="height: 80px; background-color:brown; width: 8%">[[#{accion.eliminar}]]</a>
                       </td>
                 </tbody>
               </table>

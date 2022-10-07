@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas</title>
+    <title>[[#{tarea.nombre}]]</title>
     <link rel="stylesheet" href="../css/principal.css">
     <link rel="stylesheet" href="../css/calendar.css">
     <link rel="stylesheet" href="../css/modificarTareas.css">
@@ -23,7 +23,7 @@
           <li>
             <a id="boton1"  href="/principal">
               <span class="icon"><ion-icon name="home-outline"></ion-icon></ion-icon></span>
-              <span class="title">Menu Principal</span>
+              <span class="title">[[#{tarea.principal}]]</span>
             </a>
           </li>
         </ul>
@@ -43,38 +43,90 @@
           
           <div style="background-color:lightgray; width: 60%; border-radius: 3%;">
                 <br>
-                <h1>Listado de tareas</h1>
+                <h1>[[#{tarea.titulo}]]</h1>
                 <br>
                 <form th:action="@{/guardarTarea}" method="post" th:object="${registroTareas}" >
                   <input type="hidden" name="id" th:field="*{id}"/> <!--Si esto no se pone el lo duplica-->
-                  <label style="width: 200px" for="FechaEjecucion">Fecha estimada de ejecucion :</label>
-                  <input style="width: 200px" class="form-floating text-dark" type="date" name="fecha_estimada_ejecucion" th:field="*{fecha_estimada_ejecucion}"  minlength="4" maxlength="15"/>
+                  <table>
+                    <tr>
+                      <td align="right">
+                        <label style="width: 100%" for="FechaEjecucion">[[#{tarea.fechae}]]</label>
+                      </td>
+                      <td>
+                        <input style="width: 100%" class="form-floating text-dark" type="date" name="fecha_estimada_ejecucion" th:field="*{fecha_estimada_ejecucion}"  minlength="4" maxlength="15"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <label style="width: 100%" for="HoraEjecucion">[[#{tarea.horae}]]</label>
+                      </td>
+                      <td>
+                        <input style="width: 100%" type="time" name="hora_estimada_ejecucion" th:field="*{hora_estimada_ejecucion}"  minlength="4" maxlength="15"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <label style="width: 100%" for="id_tarea">[[#{tarea.idtarea}]]</label>
+                      </td>
+                      <td>
+                        <input style="width: 100%" type="text" name="id_tarea" th:field="*{id_tarea}"  minlength="1" maxlength="15"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <label for="id_usuario">[[#{tarea.idusuario}]]</label>
+                      </td>
+                      <td>
+                        <input style="width: 100%" type="text" name="id_usuario" th:field="*{id_usuario}"  minlength="1" maxlength="15"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <label for="id_grupo_familiar">[[#{tarea.idgrupofamiliar}]]</label>
+                      </td>
+                      <td>
+                        <input style="width: 100%" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <label for="observaciones">[[#{tarea.detalle}]]</label>
+                      </td>
+                      <td>
+                        <input style="width: 100%" type="text" name="observaciones" th:field="*{observaciones}"  minlength="4" maxlength="15"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <label for="FechaFinalizacion">[[#{tarea.fechaf}]]</label>
+                      </td>
+                      <td>
+                        <input style="width: 100%" type="date" name="fecha_finalizacion" th:field="*{fecha_finalizacion}"  minlength="4" maxlength="15"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <label for="HoraFinalizacion">[[#{tarea.horaf}]]</label>
+                      </td>
+                      <td>
+                        <input style="width: 100%" type="time" name="hora_finalizacion" th:field="*{hora_finalizacion}"  minlength="4" maxlength="15"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <label for="Finalizado">[[#{tarea.estado}]]</label>
+                      </td>
+                      <td >
+                        <select  style="width: 100%" name="select" th:field="*{finalizado}" minlength="1" maxlength="15" >
+                          <option th:value="'Pendiente'" selected>[[#{tarea.pendiente}]]</option>
+                          <option th:value="'Finalizado'" >[[#{tarea.finalizado}]]</option>
+                        </select>
+
+                      </td>
+                    </tr>
+                  </table>
                   <br>
-                  <label style="width: 200px" for="HoraEjecucion">Hora estimada de ejecucion &nbsp :</label>
-                  <input style="width: 200px" type="time" name="hora_estimada_ejecucion" th:field="*{hora_estimada_ejecucion}"  minlength="4" maxlength="15"/>
-                  <br>
-                  <label style="width: 200px" for="id_tarea">Id Tarea &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                  <input style="width: 200px" type="text" name="id_tarea" th:field="*{id_tarea}"  minlength="4" maxlength="15"/>
-                  <br>
-                  <label for="id_usuario">Id Usuario &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                  <input style="width: 200px" type="text" name="id_usuario" th:field="*{id_usuario}"  minlength="4" maxlength="15"/>
-                  <br>
-                  <label for="id_grupo_familiar">Id Grupo Familiar &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                  <input style="width: 200px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="4" maxlength="15"/>
-                  <br>
-                  <label for="observaciones">Observaciones &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                  <input style="width: 200px" type="text" name="observaciones" th:field="*{observaciones}"  minlength="4" maxlength="15"/>
-                  <br>
-                  <label for="FechaFinalizacion">Fecha Finalizacion &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                  <input style="width: 200px" type="date" name="fecha_finalizacion" th:field="*{fecha_finalizacion}"  minlength="4" maxlength="15"/>
-                  <br>
-                  <label for="HoraFinalizacion">Hora Finalizacion &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp:</label>
-                  <input style="width: 200px" type="time" name="hora_finalizacion" th:field="*{hora_finalizacion}"  minlength="4" maxlength="15"/>
-                  <br>
-                  <label for="Finalizado">Finalizado &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                  <input style="width: 200px" type="text" name="finalizado" th:field="*{finalizado}"  minlength="4" maxlength="15"/>
-                  <br>
-                  <input type="submit" name="guardarTarea" value="guardar"/>
+                  <button class="ghost button border-white " type="submit" name="guardarTarea">[[#{tarea.guardar}]]</button>
                   <br>
                   <br>
                 </form>
