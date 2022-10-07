@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/calendar.css">
     <link rel="stylesheet" href="../css/modificarTareas.css">
 </head>
-<body>
+<body onload="habilitarboton()" >
     <div class="container">
       <div class="navigation">
         <ul>
@@ -45,6 +45,9 @@
                 <br>
                 <h1>[[#{tarea.titulo}]]</h1>
                 <br>
+                <br>
+                <span id="mensajeError"></span>
+                <br>
                 <form th:action="@{/guardarTarea}" method="post" th:object="${registroTareas}" >
                   <input type="hidden" name="id" th:field="*{id}"/> <!--Si esto no se pone el lo duplica-->
                   <table>
@@ -53,7 +56,7 @@
                         <label style="width: 100%" for="FechaEjecucion">[[#{tarea.fechae}]]</label>
                       </td>
                       <td>
-                        <input style="width: 100%" class="form-floating text-dark" type="date" name="fecha_estimada_ejecucion" th:field="*{fecha_estimada_ejecucion}"  minlength="4" maxlength="15"/>
+                        <input style="width: 100%" class="form-floating text-dark" type="date" name="fecha_estimada_ejecucion" th:field="*{fecha_estimada_ejecucion}" onchange="habilitarboton()" onkeypress="ValidarInfo()" minlength="4" maxlength="15"/>
                       </td>
                     </tr>
                     <tr>
@@ -61,7 +64,7 @@
                         <label style="width: 100%" for="HoraEjecucion">[[#{tarea.horae}]]</label>
                       </td>
                       <td>
-                        <input style="width: 100%" type="time" name="hora_estimada_ejecucion" th:field="*{hora_estimada_ejecucion}"  minlength="4" maxlength="15"/>
+                        <input style="width: 100%" type="time" name="hora_estimada_ejecucion" th:field="*{hora_estimada_ejecucion}" onchange="habilitarboton()" onkeypress="ValidarInfo()"  minlength="4" maxlength="15"/>
                       </td>
                     </tr>
                     <tr>
@@ -69,7 +72,7 @@
                         <label style="width: 100%" for="id_tarea">[[#{tarea.idtarea}]]</label>
                       </td>
                       <td>
-                        <input style="width: 100%" type="text" name="id_tarea" th:field="*{id_tarea}"  minlength="1" maxlength="15"/>
+                        <input style="width: 100%" type="text" name="id_tarea" th:field="*{id_tarea}" onchange="habilitarboton()" onkeypress="ValidarInfo()" minlength="1" maxlength="15"/>
                       </td>
                     </tr>
                     <tr>
@@ -77,7 +80,7 @@
                         <label for="id_usuario">[[#{tarea.idusuario}]]</label>
                       </td>
                       <td>
-                        <input style="width: 100%" type="text" name="id_usuario" th:field="*{id_usuario}"  minlength="1" maxlength="15"/>
+                        <input style="width: 100%" type="text" name="id_usuario" th:field="*{id_usuario}" onchange="habilitarboton()" onkeypress="ValidarInfo()" minlength="1" maxlength="15"/>
                       </td>
                     </tr>
                     <tr>
@@ -85,7 +88,7 @@
                         <label for="id_grupo_familiar">[[#{tarea.idgrupofamiliar}]]</label>
                       </td>
                       <td>
-                        <input style="width: 100%" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
+                        <input style="width: 100%" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}" onchange="habilitarboton()"  onkeypress="ValidarInfo()" minlength="1" maxlength="15"/>
                       </td>
                     </tr>
                     <tr>
@@ -93,7 +96,7 @@
                         <label for="observaciones">[[#{tarea.detalle}]]</label>
                       </td>
                       <td>
-                        <input style="width: 100%" type="text" name="observaciones" th:field="*{observaciones}"  minlength="4" maxlength="15"/>
+                        <input style="width: 100%" type="text" name="observaciones" th:field="*{observaciones}" onchange="habilitarboton()" onkeypress="ValidarInfo()" minlength="4" maxlength="15"/>
                       </td>
                     </tr>
                     <tr>
@@ -101,7 +104,7 @@
                         <label for="FechaFinalizacion">[[#{tarea.fechaf}]]</label>
                       </td>
                       <td>
-                        <input style="width: 100%" type="date" name="fecha_finalizacion" th:field="*{fecha_finalizacion}"  minlength="4" maxlength="15"/>
+                        <input style="width: 100%" type="date" name="fecha_finalizacion" th:field="*{fecha_finalizacion}" onchange="habilitarboton()" onkeypress="ValidarInfo()" minlength="4" maxlength="15"/>
                       </td>
                     </tr>
                     <tr>
@@ -109,7 +112,7 @@
                         <label for="HoraFinalizacion">[[#{tarea.horaf}]]</label>
                       </td>
                       <td>
-                        <input style="width: 100%" type="time" name="hora_finalizacion" th:field="*{hora_finalizacion}"  minlength="4" maxlength="15"/>
+                        <input style="width: 100%" type="time" name="hora_finalizacion" th:field="*{hora_finalizacion}" onchange="habilitarboton()" onkeypress="ValidarInfo()" minlength="4" maxlength="15"/>
                       </td>
                     </tr>
                     <tr>
@@ -117,7 +120,7 @@
                         <label for="Finalizado">[[#{tarea.estado}]]</label>
                       </td>
                       <td >
-                        <select  style="width: 100%" name="select" th:field="*{finalizado}" minlength="1" maxlength="15" >
+                        <select  style="width: 100%" name="select" th:field="*{finalizado}" minlength="1" onchange="habilitarboton()" onkeypress="ValidarInfo()" maxlength="15" >
                           <option th:value="'Pendiente'" selected>[[#{tarea.pendiente}]]</option>
                           <option th:value="'Finalizado'" >[[#{tarea.finalizado}]]</option>
                         </select>
@@ -126,7 +129,7 @@
                     </tr>
                   </table>
                   <br>
-                  <button class="ghost button border-white " type="submit" name="guardarTarea">[[#{tarea.guardar}]]</button>
+                  <button id="submitButton" class="ghost button border-white " type="submit" name="guardarTarea">[[#{tarea.guardar}]]</button>
                   <br>
                   <br>
                 </form>

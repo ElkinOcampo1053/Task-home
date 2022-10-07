@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../css/modificarUsuarios.css">
 </head>
 
-<body>
+<body onload="habilitarboton()">
   <div class="container">
     <div class="navigation">
       <ul>
@@ -44,26 +44,29 @@
               <table>
                 <tr>
                   <td align="right">
-                    <label style="width: 300px" for="nombre_usuario" >[[#{registro.nombre}]]</label>
+                    <label style="width: 100%" for="nombre_usuario"  >[[#{registro.nombre}]]</label>
                   </td>
                   <td>
-                    <input style="width: 300px" class="form-floating text-dark" type="text" name="nombre_usuario" th:field="*{nombre_usuario}"  minlength="4" maxlength="15"/>
+                    <input style="width: 100%"class="form-floating text-dark" type="text" name="nombre_usuario" th:field="*{nombre_usuario}" onkeypress="habilitarboton()"  minlength="4" maxlength="15"/>
                   </td>
                 </tr>
                 <tr>
                   <td align="right">
-                    <label style="width: 300px" for="email">[[#{registro.correo}]]</label>
+                    <label style="width: 100%"for="email">[[#{registro.correo}]]</label>
                   </td>
                   <td>
-                    <input style="width: 300px" type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49" />
+                    <input style="width: 100%"type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49" onkeyup="registro()" onkeypress="habilitarboton()" />
                   </td>
+                  <br>
+                    <label style="width: 80%" id="errorBox">
+                    </label>
                 </tr>
                 <tr>
                   <td align="right"> 
-                    <label style="width: 300px" for="password">[[#{registro.contrasena}]]</label>
+                    <label style="width: 100%"for="password">[[#{registro.contrasena}]]</label>
                   </td>
                   <td>
-                    <input style="width: 300px" type="password" name="password" th:field="*{password}"  minlength="4" maxlength="15"/>
+                    <input style="width: 100%"type="password" name="password" th:field="*{password}"  onkeypress="habilitarboton()" minlength="4" maxlength="15"/>
                   </td>
                 </tr>
                 <tr>
@@ -71,7 +74,7 @@
                     <label for="fecha_nacimiento">[[#{registro.fechanacimiento}]]</label>
                   </td>
                   <td>
-                    <input style="width: 300px" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"   min="1920-01-01" max="2200-01-01"/>
+                    <input style="width: 100%"type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"  onkeypress="habilitarboton()" min="1920-01-01" max="2200-01-01"/>
                   </td>
                 </tr>
                 <tr>
@@ -79,7 +82,7 @@
                     <label for="id_grupo_familiar">[[#{registro.idgrupo}]]</label>
                   </td>
                   <td>
-                    <input style="width: 300px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
+                    <input style="width: 100%" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}" onkeyup="habilitarboton()"  minlength="1" maxlength="15"/>
                   </td>
                 </tr>
                 <tr hidden>
@@ -87,7 +90,7 @@
                     <label  for="id_rol_usuario">[[#{registro.rol}]]</label>
                   </td>
                   <td>
-                    <select style="width: 300px" name="select" th:field="*{id_rol_usuario}" minlength="1" maxlength="15" >
+                    <select style="width: 100%"name="select" th:field="*{id_rol_usuario}" onkeyup="habilitarboton()" minlength="1" maxlength="15" >
                       <option th:value="'1'" >[[#{registro.administrador}]]</option>
                       <option th:value="'0'" selected>[[#{registro.usuario}]]</option>
                     </select>
@@ -98,7 +101,7 @@
                     <label for="tiempo_disponibilidad">[[#{registro.tiempo}]]</label>
                   </td>
                   <td>
-                    <input style="width: 300px" type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}"  minlength="1" maxlength="15"/>
+                    <input style="width: 100%"type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}" onkeyup="habilitarboton()"  minlength="1" maxlength="15"/>
                   </td>
                 </tr>
                 <tr>
@@ -106,7 +109,7 @@
                     <label  for="estado">[[#{registro.estado}]]</label>
                   </td>
                   <td>
-                    <select style="width: 300px" name="select" th:field="*{estado}" minlength="1" maxlength="15">
+                    <select style="width: 100%"name="select" th:field="*{estado}" minlength="1" maxlength="15">
                       <option th:value="'1'" selected>[[#{registro.activo}]]</option>
                       <option th:value="'0'" >[[#{registro.inactivo}]]</option>
                     </select>
@@ -114,8 +117,11 @@
                 </tr>
               </table>
 
-              <input type="submit" name="guardarUsuarioAdmin" value="Guardar"/>
+              <input id="submitButton"  type="submit" name="guardarUsuarioAdmin" value="Guardar"/>
 
+              <br>
+              <div id="errorBox">
+              </div>
               <br>
               <br>
           </form>
@@ -128,6 +134,8 @@
   <script src="js/tareas.js" charset="utf-8"></script>
   <script src="js/GrupoFamiliar.js" charset="utf-8"></script>
   <script src="js/scriptindex.js" charset="utf-8"></script>
+  <script src="js/registro.js" charset="utf-8"></script>
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  
 </body>

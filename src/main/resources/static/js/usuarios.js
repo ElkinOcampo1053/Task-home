@@ -1,4 +1,4 @@
-const registro = () => {
+const ValidarInfo = () => {
     var ErrorInformacion = false;
     var Mensaje = "";
 
@@ -69,47 +69,17 @@ const registro = () => {
     const body = {
         "email": email
     };
-    postTovalidateCorreo(body);
-
-
 };
 
-const postTovalidateCorreo = async (bodyObject) => {
-    const email = document.getElementById("email").value;
+function isNumeric(val) {
+    return /^-?\d+$/.test(val);
+  }
+  
+  const showError = (message) => {
+    document.getElementById('mensajeError').innerHTML = message ;
+  }
 
-    const url = "/api/registro";
-    const response = await fetch(url, {
-        method: "POST",
-        body: JSON.stringify(bodyObject),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-
-    if (response.ok) {
-        const message = "El correo Electronico, ya se encuentra en uso, favor cambie de corrreo" ;
-        showError(message);
-    } else {
-        
-        Mensaje = ""
-        showError(mensaje);
-    }
-};
-
-const showError = (message) => {
-    alert(message, "danger");
-}
-
-const alert = (message, type) => {
-    document.getElementById("errorBox").innerHTML = [
-        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-        `   <div>${message}</div>`,
-        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        '</div>'
-    ].join('')
-}
-
-function habilitarboton(){
+  function habilitarboton(){
     var username = document.getElementById('nombre_usuario').value;
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;

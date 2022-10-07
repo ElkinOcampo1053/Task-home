@@ -127,8 +127,14 @@ public class TaskHomeController {
 
     @PostMapping("/guardarUsuarioAdmin")
     public String guardarAdmin(Usuarios usuarios){
-        usuariosService.guardar(usuarios);
-        return "redirect:/login";
+        try{
+            usuariosService.guardar(usuarios);
+            return "redirect:/login";
+        } 
+        catch(Exception e)
+        {
+            return "/guardarUsuarioAdmin";
+        }
     }
     ////////////////////////////////////////////////////////////////////////////////////////
 }

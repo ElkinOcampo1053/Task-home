@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/calendar.css">
     <link rel="stylesheet" href="../css/modificarUsuarios.css">
 </head>
-<body>
+<body onload="habilitarboton()">
     <div class="container">
       <div class="navigation">
         <ul>
@@ -45,31 +45,33 @@
             <br>
             <h2>[[#{registro.mensaje}]]</h2>
             <br>
+            <span id="mensajeError"></span>
+            <br>
             <form th:action="@{/guardarUsuario}" method="post" th:object="${usuarios}" >
               <input type="hidden" name="id" th:field="*{id}">   
                 <table>
                   <tr>
                     <td align="right">
-                      <label style="width: 300px" for="nombre_usuario" >[[#{registro.nombre}]]</label>
+                      <label style="width: 100%" for="nombre_usuario" >[[#{registro.nombre}]]</label>
                     </td>
                     <td>
-                      <input enable style="width: 300px" class="form-floating text-dark" type="text" name="nombre_usuario" th:field="*{nombre_usuario}"  minlength="4" maxlength="15"/>
+                      <input style="width: 100%" class="form-floating text-dark" type="text" name="nombre_usuario" th:field="*{nombre_usuario}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="4" maxlength="15"/>
                     </td>
                   </tr>
                   <tr>
                     <td align="right">
-                      <label style="width: 300px" for="email">[[#{registro.correo}]]</label>
+                      <label style="width: 100%" for="email">[[#{registro.correo}]]</label>
                     </td>
                     <td>
-                      <input style="width: 300px" type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}/>
+                      <input style="width: 100%" type="text" name="email" th:field="*{email}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="4" maxlength="49"/>
                     </td>
                   </tr>
                   <tr>
                     <td align="right"> 
-                      <label style="width: 300px" for="password">[[#{registro.contrasena}]]</label>
+                      <label style="width: 100%" for="password">[[#{registro.contrasena}]]</label>
                     </td>
                     <td>
-                      <input style="width: 300px" type="password" name="password" th:field="*{password}"  minlength="4" maxlength="15"/>
+                      <input style="width: 100%" type="password" name="password" th:field="*{password}"  onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="4" maxlength="15"/>
                     </td>
                   </tr>
                   <tr>
@@ -77,7 +79,7 @@
                       <label for="fecha_nacimiento">[[#{registro.fechanacimiento}]]</label>
                     </td>
                     <td>
-                      <input style="width: 300px" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"  min="1920-01-01" max="2200-01-01"/>
+                      <input style="width: 100%" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}" onkeypress="ValidarInfo()"  onkeyup="habilitarboton()" minlength="4" maxlength="15"/>
                     </td>
                   </tr>
                   <tr>
@@ -85,15 +87,15 @@
                       <label for="id_grupo_familiar">[[#{registro.idgrupo}]]</label>
                     </td>
                     <td>
-                      <input style="width: 300px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
+                      <input style="width: 100%" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="1" maxlength="15"/>
                     </td>
                   </tr>
                   <tr hidden="hidden" >
                     <td align="right">
-                      <label hidden for="id_rol_usuario">[[#{registro.rol}]]</label>
+                      <label hidden="hidden" for="id_rol_usuario">[[#{registro.rol}]]</label>
                     </td>
                     <td>
-                      <select hidden readonly style="width: 300px" name="select" th:field="*{id_rol_usuario}" minlength="1" maxlength="15" >
+                      <select hidden readonly style="width: 100%" name="select" th:field="*{id_rol_usuario}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="1" maxlength="15" >
                         <option th:value="'0'" selected>[[#{registro.usuario}]]</option>
                         <option th:value="'1'" >[[#{registro.administrador}]]</option>
                       </select>
@@ -104,7 +106,7 @@
                       <label for="tiempo_disponibilidad">[[#{registro.tiempo}]]</label>
                     </td>
                     <td>
-                      <input style="width: 300px" type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}"  minlength="1" maxlength="15"/>
+                      <input style="width: 100%" type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="1" maxlength="15"/>
                     </td>
                   </tr>
                   <tr>
@@ -112,7 +114,7 @@
                       <label  for="estado">[[#{registro.estado}]]</label>
                     </td>
                     <td>
-                      <select style="width: 300px" name="select" th:field="*{estado}" minlength="1" maxlength="15">
+                      <select style="width: 100%" name="select" th:field="*{estado}" onkeypress="ValidarInfo()" onkeyup="habilitarboton()" minlength="1" maxlength="15">
                         <option th:value="'1'" selected>[[#{registro.activo}]]</option>
                         <option th:value="'0'" >[[#{registro.inactivo}]]</option>
                       </select>
@@ -120,46 +122,12 @@
                   </tr>
                 </table>
 
-                <input type="submit" name="guardarUsuarioAdmin" value="Guardar"/>
+                <input id="submitButton" type="submit" name="guardarUsuarioAdmin" value="Guardar"/>
 
                 <br>
                 <br>
             </form>
           </table>  
-              <!--input type="hidden" name="id" th:field="*{id}"> 
-                <label style="width: 300px" for="nombre_usuario">Nombre Usuario &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <input style="width: 300px" class="form-floating text-dark" type="text" name="nombre_usuario" th:field="*{nombre_usuario}"  minlength="4" maxlength="15"/>
-                <br>
-                <label style="width: 300px" for="password">Contraseña Temporal &nbsp :</label>
-                <input style="width: 300px" type="password" name="password" th:field="*{password}"  minlength="4" maxlength="15"/>
-                <br>
-                <label style="width: 300px" for="email">Correo Electronico &nbsp &nbsp &nbsp :</label>
-                <input style="width: 300px" type="text" name="email" th:field="*{email}"  minlength="4" maxlength="49"/>
-                <br>
-                <label for="fecha_nacimiento">Fecha de Nacimiento &nbsp :</label>
-                <input style="width: 300px" type="date" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"  minlength="4" maxlength="15"/>
-                <br>
-                <label for="id_grupo_familiar">Id Grupo &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <input style="width: 300px" type="text" name="id_grupo_familiar" th:field="*{id_grupo_familiar}"  minlength="1" maxlength="15"/>
-                <br>
-                <label  for="id_rol_usuario">Rol &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <select disabled="disabled" style="width: 300px" name="select" th:field="*{id_rol_usuario}" minlength="1" maxlength="15" >
-                  <option th:value="'2'" selected>Usuario</option>
-                  <option th:value="'1'" >Administrador</option>
-                </select>
-                <br>
-                <label for="tiempo_disponibilidad">Tiempo Disponibilidad &nbsp:</label>
-                <input style="width: 300px" type="text" name="tiempo_disponibilidad" th:field="*{tiempo_disponibilidad}"  minlength="1" maxlength="15"/>
-                <br>
-                <label  for="estado">Estado &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp :</label>
-                <select style="width: 300px" name="select" th:field="*{estado}" minlength="1" maxlength="15">
-                  <option th:value="'1'" selected>Activo</option>
-                  <option th:value="'0'" >Inactivo</option>
-                </select>
-                <br>
-                <input type="submit" name="guardarUsuario" value="guardar"/>
-                <br>
-                <br-->
             </form>
           </table>
         </center>
@@ -168,9 +136,9 @@
     </div>
 
     <script src="js/principal.js" charset="utf-8"></script>
-    <script src="js/tareas.js" charset="utf-8"></script>
     <script src="js/GrupoFamiliar.js" charset="utf-8"></script>
     <script src="js/scriptindex.js" charset="utf-8"></script>
+    <script src="js/usuarios.js" charset="utf-8"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  
